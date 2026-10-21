@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeline Auto Sales | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for an independent used car dealer: searchable inventory, one-tap text about any vehicle, payment calculator and a simple admin to add and edit cars. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Ridgeline Auto Sales | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for an independent used car dealer, with an admin panel to manage inventory.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          coal: { 900:'#15171a', 800:'#1d2024', 700:'#2a2e33', 600:'#3a3f46', 400:'#7c838c', 200:'#d6d9dd', 100:'#eceef0' },
+          amber: { 400:'#f5b13d', 500:'#ee9a1a', 600:'#d17f08' },
+          paper: '#f6f4ef'
+        },
+        fontFamily: {
+          display: ['"Barlow Condensed"', 'Impact', 'sans-serif'],
+          sans: ['Barlow', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #f6f4ef; color: #15171a; }
+  a[href^="tel:"], a[href^="sms:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal { opacity: 1 !important; transform: none !important; }
+  }
+  .stripes { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 2px, transparent 2px 14px); }
+  dialog::backdrop { background: rgba(21,23,26,.6); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: #ee9a1a; }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<div class="bg-amber-500 text-coal-900 text-center text-xs sm:text-sm font-medium px-4 py-2">
+  Demo website by <strong>BF Tech Lab</strong> — Ridgeline Auto Sales is a fictional dealer.
+  <button type="button" data-open-admin class="underline font-bold ml-1">Try the dealer admin →</button>
+</div>
+
+<header id="top" class="sticky top-0 z-40 bg-coal-900 text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5" aria-label="Ridgeline Auto Sales home">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#ee9a1a"/><path d="M6 28 L16 14 L22 22 L26 17 L34 28Z" fill="#15171a"/></svg>
+      <span class="font-display text-xl sm:text-2xl font-bold tracking-wide uppercase leading-none">Ridgeline<span class="block text-[11px] sm:text-xs font-semibold tracking-[.25em] text-amber-400">Auto Sales</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-semibold" aria-label="Main">
+      <a href="#inventory" class="hover:text-amber-400">Inventory</a>
+      <a href="#financing" class="hover:text-amber-400">Financing</a>
+      <a href="#trade" class="hover:text-amber-400">Trade-in</a>
+      <a href="#why" class="hover:text-amber-400">Why us</a>
+      <a href="#visit" class="hover:text-amber-400">Visit</a>
+    </nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550188" class="hidden sm:inline text-sm font-semibold text-amber-400">(555) 555-0188</a>
+      <a href="sms:+15555550188?body=Hi%2C%20I%27m%20interested%20in%20one%20of%20your%20vehicles." class="rounded-md bg-amber-500 hover:bg-amber-400 text-coal-900 text-sm font-bold px-4 py-2.5 transition">Text us</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="relative bg-coal-900 text-white overflow-hidden">
+  <div class="absolute inset-0 stripes" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 md:pt-16 md:pb-24 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7">
+      <p class="hero-in text-amber-400 font-semibold uppercase tracking-[.2em] text-xs">Family owned · Brookside since 2004</p>
+      <h1 class="hero-in font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-[.95] mt-4">
+        Clean, inspected cars &amp; trucks.<br><span class="text-amber-400">Honest prices.</span>
+      </h1>
+      <p class="hero-in mt-5 text-lg text-white/75 max-w-xl">Every vehicle checked by our own mechanics, with a 3-month / 3,000-mile warranty on most of the lot. See something you like? Text us and get an answer in minutes.</p>
+
+      <form id="hero-search" class="hero-in mt-8 bg-white text-coal-900 rounded-xl p-2 grid sm:grid-cols-[1fr_1fr_auto] gap-2 max-w-2xl" role="search" aria-label="Quick search">
+        <label class="sr-only" for="hero-make">Make</label>
+        <select id="hero-make" class="rounded-lg bg-coal-100 px-3 py-3 font-semibold"><option value="">Any make</option></select>
+        <label class="sr-only" for="hero-price">Max price</label>
+        <select id="hero-price" class="rounded-lg bg-coal-100 px-3 py-3 font-semibold">
+          <option value="">Any price</option>
+          <option value="10000">Under $10,000</option>
+          <option value="15000">Under $15,000</option>
+          <option value="20000">Under $20,000</option>
+          <option value="30000">Under $30,000</option>
+        </select>
+        <button class="rounded-lg bg-amber-500 hover:bg-amber-400 font-bold px-6 py-3 transition">Search <span id="hero-count"></span></button>
+      </form>
+    </div>
+
+    <div class="hero-in lg:col-span-5">
+      <div class="relative rounded-2xl bg-coal-800 border border-white/10 p-6">
+        <span class="absolute -top-3 left-6 rounded bg-amber-500 text-coal-900 text-xs font-bold uppercase tracking-wider px-2.5 py-1">Featured</span>
+        <div id="hero-car" class="mt-2"></div>
+        <div class="mt-4 flex items-end justify-between gap-4">
+          <div>
+            <p id="hero-car-title" class="font-display text-2xl font-bold uppercase leading-tight"></p>
+            <p id="hero-car-meta" class="text-sm text-white/60"></p>
+          </div>
+          <p id="hero-car-price" class="font-display text-3xl font-bold text-amber-400"></p>
+        </div>
+        <button type="button" id="hero-car-btn" class="mt-5 w-full rounded-lg border border-white/20 hover:border-amber-400 font-semibold py-3 transition">See details</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inventory -->
+<section id="inventory" class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="text-amber-600 font-semibold uppercase tracking-[.2em] text-xs">Inventory</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase mt-1">On the lot now</h2>
+      </div>
+      <p class="text-sm text-coal-600"><span id="result-count" class="font-bold text-coal-900">0</span> vehicles · updated by the dealer, not a feed</p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3 bg-white rounded-xl p-3 shadow-sm" role="group" aria-label="Filter inventory">
+      <label class="col-span-2 md:col-span-1 text-xs font-semibold text-coal-600">Search
+        <input id="f-q" type="search" placeholder="e.g. F-150, AWD" class="mt-1 w-full rounded-lg bg-coal-100 px-3 py-2.5 text-sm font-medium text-coal-900">
+      </label>
+      <label class="text-xs font-semibold text-coal-600">Make
+        <select id="f-make" class="mt-1 w-full rounded-lg bg-coal-100 px-3 py-2.5 text-sm font-medium text-coal-900"><option value="">All makes</option></select>
+      </label>
+      <label class="text-xs font-semibold text-coal-600">Body
+        <select id="f-body" class="mt-1 w-full rounded-lg bg-coal-100 px-3 py-2.5 text-sm font-medium text-coal-900">
+          <option value="">All types</option><option value="Truck">Trucks</option><option value="SUV">SUVs</option><option value="Sedan">Cars</option>
+        </select>
+      </label>
+      <label class="text-xs font-semibold text-coal-600">Max price
+        <select id="f-price" class="mt-1 w-full rounded-lg bg-coal-100 px-3 py-2.5 text-sm font-medium text-coal-900">
+          <option value="">Any</option><option value="10000">$10,000</option><option value="15000">$15,000</option><option value="20000">$20,000</option><option value="30000">$30,000</option>
+        </select>
+      </label>
+      <label class="text-xs font-semibold text-coal-600">Sort by
+        <select id="f-sort" class="mt-1 w-full rounded-lg bg-coal-100 px-3 py-2.5 text-sm font-medium text-coal-900">
+          <option value="new">Newest arrivals</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="miles">Lowest miles</option><option value="year">Newest year</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite"></div>
+    <div id="empty" class="hidden mt-10 text-center rounded-xl border-2 border-dashed border-coal-200 p-10">
+      <p class="font-display text-2xl font-bold uppercase">Nothing matches yet</p>
+      <p class="text-coal-600 mt-2">Tell us what you're after and we'll find it at auction for you.</p>
+      <a href="sms:+15555550188?body=Hi%2C%20I%27m%20looking%20for%20a%20vehicle%20you%20don%27t%20have%20in%20stock%3A%20" class="inline-block mt-5 rounded-md bg-amber-500 font-bold px-5 py-3">Text us what you need</a>
+    </div>
+  </div>
+</section>
+
+<!-- Financing -->
+<section id="financing" class="bg-white py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-start">
+    <div class="reveal">
+      <p class="text-amber-600 font-semibold uppercase tracking-[.2em] text-xs">Financing</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase mt-1">Good credit, bad credit, first car</h2>
+      <p class="mt-4 text-coal-600">We work with local banks and credit unions to find a payment that fits. Most applications get an answer the same day.</p>
+      <ul class="mt-6 space-y-3">
+        <li class="flex gap-3"><span class="text-amber-500 font-bold" aria-hidden="true">✓</span>First-time buyer programs</li>
+        <li class="flex gap-3"><span class="text-amber-500 font-bold" aria-hidden="true">✓</span>Trade-in value applied to your down payment</li>
+        <li class="flex gap-3"><span class="text-amber-500 font-bold" aria-hidden="true">✓</span>No pressure, no surprise fees at signing</li>
+      </ul>
+    </div>
+    <div class="reveal rounded-2xl bg-coal-900 text-white p-6 sm:p-8">
+      <h3 class="font-display text-2xl font-bold uppercase">Payment estimator</h3>
+      <div class="mt-6 space-y-5">
+        <label class="block text-sm font-semibold">Vehicle price <span id="c-price-out" class="float-right text-amber-400"></span>
+          <input id="c-price" type="range" min="5000" max="50000" step="500" value="18000" class="w-full mt-2">
+        </label>
+        <label class="block text-sm font-semibold">Down payment <span id="c-down-out" class="float-right text-amber-400"></span>
+          <input id="c-down" type="range" min="0" max="15000" step="250" value="2000" class="w-full mt-2">
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+          <label class="block text-sm font-semibold">Term
+            <select id="c-term" class="mt-2 w-full rounded-lg bg-coal-700 px-3 py-2.5"><option value="36">36 months</option><option value="48">48 months</option><option value="60" selected>60 months</option><option value="72">72 months</option></select>
+          </label>
+          <label class="block text-sm font-semibold">Credit
+            <select id="c-apr" class="mt-2 w-full rounded-lg bg-coal-700 px-3 py-2.5"><option value="7.5">Excellent (~7.5%)</option><option value="10" selected>Good (~10%)</option><option value="14">Fair (~14%)</option><option value="19">Rebuilding (~19%)</option></select>
+          </label>
+        </div>
+      </div>
+      <div class="mt-7 rounded-xl bg-coal-800 p-5 flex items-end justify-between gap-4">
+        <div><p class="text-sm text-white/60">Estimated payment</p><p class="font-display text-5xl font-bold text-amber-400"><span id="c-out">$0</span><span class="text-xl text-white/60">/mo</span></p></div>
+        <a href="#trade" class="rounded-md bg-amber-500 hover:bg-amber-400 text-coal-900 font-bold px-4 py-3 text-sm transition">Get pre-approved</a>
+      </div>
+      <p class="mt-3 text-xs text-white/50">Estimate only, before taxes and fees. Your actual rate depends on your credit and the lender.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Trade-in -->
+<section id="trade" class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-5 gap-10">
+    <div class="reveal lg:col-span-2">
+      <p class="text-amber-600 font-semibold uppercase tracking-[.2em] text-xs">Trade-in &amp; pre-approval</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase mt-1">What's your car worth?</h2>
+      <p class="mt-4 text-coal-600">Send us the basics and we'll come back with a real number the same business day. Bring it in and we'll inspect it in front of you: no number that changes at signing.</p>
+    </div>
+    <form id="trade-form" class="reveal lg:col-span-3 bg-white rounded-2xl p-6 sm:p-8 shadow-sm grid sm:grid-cols-2 gap-4" novalidate>
+      <label class="text-sm font-semibold">Year, make &amp; model<input name="vehicle" required placeholder="e.g. 2014 Honda Accord" class="mt-1.5 w-full rounded-lg border border-coal-200 px-3 py-3 font-normal"></label>
+      <label class="text-sm font-semibold">Approx. miles<input name="miles" inputmode="numeric" placeholder="e.g. 98,000" class="mt-1.5 w-full rounded-lg border border-coal-200 px-3 py-3 font-normal"></label>
+      <label class="text-sm font-semibold">Your name<input name="tname" required autocomplete="name" class="mt-1.5 w-full rounded-lg border border-coal-200 px-3 py-3 font-normal"></label>
+      <label class="text-sm font-semibold">Mobile number<input name="tphone" required type="tel" autocomplete="tel" class="mt-1.5 w-full rounded-lg border border-coal-200 px-3 py-3 font-normal"></label>
+      <label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="preapproval" type="checkbox" class="mt-1 w-4 h-4 accent-amber-500"> I'd also like to get pre-approved for financing</label>
+      <label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 accent-amber-500"> I agree to be contacted by phone or text about this request.</label>
+      <p id="trade-error" class="hidden sm:col-span-2 text-sm font-semibold text-red-700" role="alert">Please fill in your vehicle, name, mobile number and tick the consent box.</p>
+      <div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-3">
+        <button class="rounded-md bg-coal-900 hover:bg-coal-700 text-white font-bold px-6 py-3 transition">Send for a quote</button>
+        <p class="text-xs text-coal-400">Demo: on a live site this goes straight to the dealer's phone.</p>
+      </div>
+      <p id="trade-ok" class="hidden sm:col-span-2 rounded-lg bg-amber-400/20 text-coal-900 font-semibold p-4" tabindex="-1"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Why us -->
+<section id="why" class="bg-coal-900 text-white py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="reveal max-w-2xl">
+      <p class="text-amber-400 font-semibold uppercase tracking-[.2em] text-xs">Why Ridgeline</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase mt-1">Four things we never cut corners on</h2>
+    </div>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="reveal rounded-xl bg-coal-800 p-6"><p class="font-display text-4xl font-bold text-amber-400">01</p><h3 class="font-display text-xl font-bold uppercase mt-3">Inspected in-house</h3><p class="text-sm text-white/65 mt-2">Brakes, tires, fluids and a road test by our own mechanics before a car hits the lot.</p></div>
+      <div class="reveal rounded-xl bg-coal-800 p-6"><p class="font-display text-4xl font-bold text-amber-400">02</p><h3 class="font-display text-xl font-bold uppercase mt-3">Free history report</h3><p class="text-sm text-white/65 mt-2">Ask for the vehicle history on any car and we'll text it to you on the spot.</p></div>
+      <div class="reveal rounded-xl bg-coal-800 p-6"><p class="font-display text-4xl font-bold text-amber-400">03</p><h3 class="font-display text-xl font-bold uppercase mt-3">Warranty included</h3><p class="text-sm text-white/65 mt-2">3 months / 3,000 miles on most vehicles, with extended coverage available.</p></div>
+      <div class="reveal rounded-xl bg-coal-800 p-6"><p class="font-display text-4xl font-bold text-amber-400">04</p><h3 class="font-display text-xl font-bold uppercase mt-3">Price on the window</h3><p class="text-sm text-white/65 mt-2">The price you see online is the price on the car. No surprise add-ons at signing.</p></div>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <figure class="reveal rounded-xl border border-white/10 p-6"><p class="text-amber-400" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-sm text-white/80">"Texted about a truck at 9 pm, had an answer before I finished my coffee the next morning. Drove it home that afternoon."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample customer · Google</figcaption></figure>
+      <figure class="reveal rounded-xl border border-white/10 p-6"><p class="text-amber-400" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-sm text-white/80">"First car, no credit history. They found me a lender and a payment I can actually afford."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample customer · Google</figcaption></figure>
+      <figure class="reveal rounded-xl border border-white/10 p-6"><p class="text-amber-400" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-sm text-white/80">"Price online was the price at the desk. Third car we've bought here."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample customer · Google</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section id="visit" class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10">
+    <div class="reveal">
+      <p class="text-amber-600 font-semibold uppercase tracking-[.2em] text-xs">Visit the lot</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase mt-1">Route 30, just past the bridge</h2>
+      <address class="not-italic mt-5 text-coal-700">4410 Route 30 West<br>Brookside, PA 00000</address>
+      <table class="mt-6 w-full max-w-sm text-sm">
+        <caption class="sr-only">Opening hours</caption>
+        <tbody class="divide-y divide-coal-200">
+          <tr><th scope="row" class="py-2.5 text-left font-semibold">Monday – Friday</th><td class="py-2.5 text-right">9:00 am – 7:00 pm</td></tr>
+          <tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">9:00 am – 4:00 pm</td></tr>
+          <tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Closed (texts answered)</td></tr>
+        </tbody>
+      </table>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="tel:+15555550188" class="rounded-md bg-coal-900 text-white font-bold px-5 py-3">Call (555) 555-0188</a>
+        <a href="sms:+15555550188" class="rounded-md border-2 border-coal-900 font-bold px-5 py-2.5">Text us</a>
+      </div>
+    </div>
+    <div class="reveal rounded-2xl overflow-hidden bg-coal-200 min-h-[320px] relative" role="img" aria-label="Map placeholder showing the lot on Route 30">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="320" fill="#d6d9dd"/>
+        <path d="M0 190 L400 130" stroke="#f6f4ef" stroke-width="26"/>
+        <path d="M0 190 L400 130" stroke="#ee9a1a" stroke-width="2" stroke-dasharray="10 10"/>
+        <path d="M60 0 C90 120 70 220 120 320" stroke="#9fb6c9" stroke-width="30" fill="none"/>
+        <rect x="200" y="40" width="110" height="64" rx="6" fill="#eceef0"/>
+        <rect x="230" y="190" width="120" height="80" rx="6" fill="#eceef0"/>
+        <path d="M250 112c-11 0-19 8-19 19 0 14 19 31 19 31s19-17 19-31c0-11-8-19-19-19z" fill="#15171a"/>
+        <circle cx="250" cy="131" r="6" fill="#ee9a1a"/>
+      </svg>
+      <a href="#visit" class="absolute bottom-4 left-4 rounded-md bg-white px-4 py-2 text-sm font-bold shadow">Get directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-white py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <h2 class="reveal font-display text-4xl sm:text-5xl font-bold uppercase">Questions we get every day</h2>
+    <div class="mt-8 divide-y divide-coal-200 border-y border-coal-200">
+      <details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Can I hold a car with a deposit?<span class="faq-icon text-2xl text-amber-500 transition-transform">+</span></summary><p class="mt-3 text-sm text-coal-600">Yes. A refundable deposit holds any vehicle for 48 hours while you arrange financing or a test drive.</p></details>
+      <details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you deliver?<span class="faq-icon text-2xl text-amber-500 transition-transform">+</span></summary><p class="mt-3 text-sm text-coal-600">Within 60 miles, delivery is free on vehicles over $15,000. Further out, ask us for a quote.</p></details>
+      <details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Can my mechanic look at the car first?<span class="faq-icon text-2xl text-amber-500 transition-transform">+</span></summary><p class="mt-3 text-sm text-coal-600">Of course. Take it to your own mechanic for a pre-purchase inspection, or we can drop it off for you.</p></details>
+      <details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">I don't see the car I want.<span class="faq-icon text-2xl text-amber-500 transition-transform">+</span></summary><p class="mt-3 text-sm text-coal-600">Text us the make, model, budget and must-haves. We buy at auction every week and can usually find it within 2–3 weeks.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-coal-900 text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl font-bold uppercase text-white">Ridgeline Auto Sales</p><p class="mt-2">4410 Route 30 West<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550188" class="hover:text-white">(555) 555-0188</a><br><a href="sms:+15555550188" class="hover:text-white">Text us</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The dealer, vehicles and reviews are fictional.</p><button type="button" data-open-admin class="mt-3 font-semibold text-amber-400 underline">Open the dealer admin</button></div>
+  </div>
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">© <span id="year">2026</span> Ridgeline Auto Sales (demo)</p>
+</footer>
+
+<!-- Mobile bar -->
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-coal-900/95 backdrop-blur p-3 flex gap-2">
+  <a href="tel:+15555550188" class="flex-1 text-center rounded-md border border-white/25 text-white font-bold py-3 text-sm">Call</a>
+  <a href="#inventory" class="flex-[2] text-center rounded-md bg-amber-500 text-coal-900 font-bold py-3 text-sm">Browse inventory</a>
+</div>
+
+<!-- Admin launcher (desktop) -->
+<button type="button" data-open-admin class="hidden md:flex fixed bottom-5 left-5 z-40 items-center gap-2 rounded-full bg-white shadow-lg border border-coal-200 px-4 py-3 text-sm font-bold hover:border-amber-500">
+  <span class="w-2.5 h-2.5 rounded-full bg-amber-500" aria-hidden="true"></span> Dealer admin (demo)
+</button>
+
+<!-- Vehicle detail dialog -->
+<dialog id="car-dialog" class="w-[calc(100%-2rem)] max-w-3xl rounded-2xl p-0 bg-white text-coal-900" aria-labelledby="d-title">
+  <div class="relative">
+    <button type="button" data-close class="absolute right-3 top-3 z-10 w-10 h-10 rounded-full bg-white/90 text-xl font-bold" aria-label="Close">×</button>
+    <div id="d-art" class="bg-coal-100 px-6 pt-8 pb-4"></div>
+    <div class="p-6 sm:p-8">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div><h3 id="d-title" class="font-display text-3xl sm:text-4xl font-bold uppercase leading-tight"></h3><p id="d-sub" class="text-coal-600"></p></div>
+        <div class="sm:text-right"><p id="d-price" class="font-display text-4xl font-bold"></p><p id="d-pay" class="text-sm text-coal-600"></p></div>
+      </div>
+      <dl id="d-specs" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm"></dl>
+      <p id="d-desc" class="mt-6 text-coal-700"></p>
+      <div class="mt-7 grid sm:grid-cols-3 gap-3">
+        <a id="d-sms" class="text-center rounded-md bg-amber-500 hover:bg-amber-400 font-bold px-4 py-3">Text about this car</a>
+        <a href="tel:+15555550188" class="text-center rounded-md bg-coal-900 text-white font-bold px-4 py-3">Call the lot</a>
+        <a href="#financing" data-close class="text-center rounded-md border-2 border-coal-900 font-bold px-4 py-2.5">Estimate payments</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Admin dialog -->
+<dialog id="admin" class="w-[calc(100%-2rem)] max-w-4xl rounded-2xl p-0 bg-paper text-coal-900" aria-labelledby="a-title">
+  <div class="sticky top-0 z-10 bg-coal-900 text-white px-5 sm:px-6 py-4 flex items-center justify-between gap-3">
+    <div>
+      <h3 id="a-title" class="font-display text-2xl font-bold uppercase">Dealer admin</h3>
+      <p class="text-xs text-white/60">Demo: changes are saved only in this browser. The live version saves to the dealer's own database.</p>
+    </div>
+    <button type="button" data-close class="w-10 h-10 rounded-full bg-white/10 text-xl font-bold shrink-0" aria-label="Close admin">×</button>
+  </div>
+  <div class="p-5 sm:p-6 grid lg:grid-cols-5 gap-6">
+    <form id="car-form" class="lg:col-span-2 bg-white rounded-xl p-5 shadow-sm space-y-3" novalidate>
+      <h4 id="form-title" class="font-display text-xl font-bold uppercase">Add a vehicle</h4>
+      <input type="hidden" name="id">
+      <div class="grid grid-cols-3 gap-2">
+        <label class="text-xs font-semibold">Year<input name="year" type="number" min="1980" max="2030" required class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+        <label class="col-span-2 text-xs font-semibold">Make<input name="make" required class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="text-xs font-semibold">Model<input name="model" required class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+        <label class="text-xs font-semibold">Trim<input name="trim" class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="text-xs font-semibold">Price ($)<input name="price" type="number" min="0" step="1" required class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+        <label class="text-xs font-semibold">Miles<input name="miles" type="number" min="0" step="1" required class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></label>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <label class="text-xs font-semibold">Body<select name="body" class="mt-1 w-full rounded-md border border-coal-200 px-1.5 py-2 text-sm"><option>Sedan</option><option>SUV</option><option>Truck</option></select></label>
+        <label class="text-xs font-semibold">Drive<select name="drive" class="mt-1 w-full rounded-md border border-coal-200 px-1.5 py-2 text-sm"><option>FWD</option><option>AWD</option><option>4WD</option><option>RWD</option></select></label>
+        <label class="text-xs font-semibold">Color<input name="color" type="color" value="#2f5d8a" class="mt-1 w-full h-[38px] rounded-md border border-coal-200"></label>
+      </div>
+      <label class="block text-xs font-semibold">Description<textarea name="desc" rows="3" class="mt-1 w-full rounded-md border border-coal-200 px-2 py-2 text-sm"></textarea></label>
+      <label class="flex items-center gap-2 text-sm"><input name="featured" type="checkbox" class="w-4 h-4 accent-amber-500"> Feature on the homepage</label>
+      <p id="form-error" class="hidden text-sm font-semibold text-red-700" role="alert">Year, make, model, price and miles are required.</p>
+      <div class="flex gap-2 pt-1">
+        <button class="flex-1 rounded-md bg-amber-500 hover:bg-amber-400 font-bold py-2.5">Save vehicle</button>
+        <button type="button" id="form-cancel" class="hidden rounded-md border border-coal-200 font-semibold px-4">Cancel</button>
+      </div>
+    </form>
+    <div class="lg:col-span-3">
+      <div class="flex items-center justify-between gap-3">
+        <h4 class="font-display text-xl font-bold uppercase">Your inventory <span id="a-count" class="text-coal-400"></span></h4>
+        <button type="button" id="reset-demo" class="text-xs font-semibold underline text-coal-600">Reset demo data</button>
+      </div>
+      <ul id="admin-list" class="mt-3 space-y-2"></ul>
+    </div>
+  </div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+document.documentElement.classList.add('js');
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const PHONE = '+15555550188';
+const STORE_KEY = 'ridgeline-demo-inventory-v1';
+
+const SEED = [
+  { id:'c1', year:2019, make:'Ford', model:'F-150', trim:'XLT SuperCrew', price:28950, miles:61200, body:'Truck', drive:'4WD', color:'#8a1c1c', featured:true, sold:false, added:10, desc:'5.0L V8, tow package, bed liner, backup camera. One owner, local trade, service records on file.' },
+  { id:'c2', year:2018, make:'Honda', model:'CR-V', trim:'EX AWD', price:19450, miles:74800, body:'SUV', drive:'AWD', color:'#c9ccd1', featured:false, sold:false, added:9, desc:'Sunroof, heated seats, Apple CarPlay. New tires and brakes at our shop.' },
+  { id:'c3', year:2017, make:'Toyota', model:'Camry', trim:'SE', price:15900, miles:88300, body:'Sedan', drive:'FWD', color:'#1f2f4a', featured:false, sold:false, added:8, desc:'Reliable commuter, 35 mpg highway, clean history report, two keys.' },
+  { id:'c4', year:2020, make:'Chevrolet', model:'Equinox', trim:'LT', price:17800, miles:52100, body:'SUV', drive:'FWD', color:'#ffffff', featured:false, sold:false, added:7, desc:'Remote start, blind spot monitoring, factory warranty transferable.' },
+  { id:'c5', year:2016, make:'Jeep', model:'Wrangler Unlimited', trim:'Sport', price:22500, miles:96400, body:'SUV', drive:'4WD', color:'#2e5130', featured:false, sold:false, added:6, desc:'Hard top, 4-door, new soft top included. Never off-roaded hard, no rust.' },
+  { id:'c6', year:2015, make:'Ram', model:'1500', trim:'Big Horn Crew Cab', price:18900, miles:118500, body:'Truck', drive:'4WD', color:'#15171a', featured:false, sold:false, added:5, desc:'5.7L HEMI, running boards, tonneau cover. Great work truck at a fair price.' },
+  { id:'c7', year:2018, make:'Subaru', model:'Outback', trim:'2.5i Premium', price:16700, miles:91200, body:'SUV', drive:'AWD', color:'#5b6a73', featured:false, sold:false, added:4, desc:'Eyesight safety suite, roof rails, all-weather mats. Timing belt-free engine.' },
+  { id:'c8', year:2021, make:'Hyundai', model:'Elantra', trim:'SEL', price:16400, miles:38900, body:'Sedan', drive:'FWD', color:'#9b1e3a', featured:false, sold:false, added:3, desc:'Low miles, balance of factory powertrain warranty, wireless CarPlay.' },
+  { id:'c9', year:2014, make:'Honda', model:'Civic', trim:'LX', price:8900, miles:126300, body:'Sedan', drive:'FWD', color:'#7d8288', featured:false, sold:false, added:2, desc:'Great first car. Fresh oil change and inspection, 2 owners.' },
+  { id:'c10', year:2017, make:'GMC', model:'Sierra 1500', trim:'SLE Double Cab', price:23900, miles:83700, body:'Truck', drive:'4WD', color:'#c9ccd1', featured:false, sold:true, added:1, desc:'Z71 package, trailer brake controller, spray-in liner.' }
+];
+
+/* ---------- storage ---------- */
+function loadInventory() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) { const data = JSON.parse(raw); if (Array.isArray(data)) return data; }
+  } catch (e) { /* storage unavailable */ }
+  return SEED.map(c => ({ ...c }));
+}
+function saveInventory() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(inventory)); } catch (e) { /* demo still works in memory */ }
+}
+let inventory = loadInventory();
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+const miles = n => (Number(n) || 0).toLocaleString('en-US') + ' mi';
+const title = c => `${c.year} ${c.make} ${c.model}`;
+const safeColor = c => /^#[0-9a-fA-F]{6}$/.test(c) ? c : '#7d8288';
+function monthly(price, down = 0, apr = 10, n = 60) {
+  const P = Math.max(0, price - down), r = apr / 1200;
+  return r ? P * r / (1 - Math.pow(1 + r, -n)) : P / n;
+}
+function smsLink(c) {
+  const body = `Hi, is the ${title(c)} ${c.trim || ''} (${money(c.price)}, ${miles(c.miles)}) still available?`.replace(/\s+/g, ' ');
+  return `sms:${PHONE}?body=${encodeURIComponent(body)}`;
+}
+
+function carSVG(body, color) {
+  const fill = safeColor(color);
+  const shapes = {
+    Sedan: { b:'M20 100 L30 78 Q40 70 70 68 L110 46 Q120 40 140 40 L200 40 Q216 40 228 50 L256 68 Q290 72 300 84 L304 100 Q304 108 296 108 L24 108 Q18 108 20 100Z', w:'M120 52 L142 47 L196 47 L220 66 L106 66Z' },
+    SUV:   { b:'M18 100 L22 64 Q24 50 40 48 L92 46 L110 30 Q116 26 128 26 L240 26 Q256 26 262 36 L284 62 Q300 66 302 80 L304 100 Q304 108 296 108 L24 108 Q16 108 18 100Z', w:'M118 34 L238 34 L266 62 L104 62Z' },
+    Truck: { b:'M18 100 L20 70 Q22 62 34 62 L150 62 L150 30 Q150 24 158 24 L222 24 Q232 24 238 32 L262 60 Q296 64 302 78 L304 100 Q304 108 296 108 L24 108 Q16 108 18 100Z', w:'M160 32 L222 32 L250 60 L160 60Z' }
+  };
+  const s = shapes[body] || shapes.Sedan;
+  const wheel = x => `<circle cx="${x}" cy="108" r="22" fill="#15171a"/><circle cx="${x}" cy="108" r="9" fill="#9aa1a9"/>`;
+  return `<svg viewBox="0 0 320 140" class="w-full h-auto" aria-hidden="true">
+    <ellipse cx="162" cy="130" rx="140" ry="7" fill="#15171a" opacity=".15"/>
+    <path d="${s.b}" fill="${fill}" stroke="#15171a" stroke-opacity=".25" stroke-width="2"/>
+    <path d="${s.w}" fill="#2a2e33" opacity=".75"/>
+    <rect x="286" y="80" width="14" height="6" rx="3" fill="#f5b13d"/>
+    ${wheel(82)}${wheel(246)}
+  </svg>`;
+}
+
+/* ---------- public site ---------- */
+const grid = $('#grid'), empty = $('#empty');
+const fq = $('#f-q'), fmake = $('#f-make'), fbody = $('#f-body'), fprice = $('#f-price'), fsort = $('#f-sort');
+
+function fillMakes() {
+  const makes = [...new Set(inventory.map(c => c.make))].sort();
+  [fmake, $('#hero-make')].forEach(sel => {
+    const keep = sel.value;
+    sel.innerHTML = `<option value="">${sel === fmake ? 'All makes' : 'Any make'}</option>` + makes.map(m => `<option>${esc(m)}</option>`).join('');
+    if (makes.includes(keep)) sel.value = keep;
+  });
+}
+
+function filtered() {
+  const q = fq.value.trim().toLowerCase();
+  let list = inventory.filter(c =>
+    (!fmake.value || c.make === fmake.value) &&
+    (!fbody.value || c.body === fbody.value) &&
+    (!fprice.value || c.price <= Number(fprice.value)) &&
+    (!q || `${c.year} ${c.make} ${c.model} ${c.trim} ${c.drive} ${c.body}`.toLowerCase().includes(q))
+  );
+  const sorters = {
+    'new': (a, b) => (a.sold - b.sold) || (b.added - a.added),
+    'price-asc': (a, b) => a.price - b.price,
+    'price-desc': (a, b) => b.price - a.price,
+    'miles': (a, b) => a.miles - b.miles,
+    'year': (a, b) => b.year - a.year
+  };
+  return list.sort(sorters[fsort.value] || sorters.new);
+}
+
+function renderGrid() {
+  const list = filtered();
+  $('#result-count').textContent = list.filter(c => !c.sold).length;
+  empty.classList.toggle('hidden', list.length > 0);
+  const newestAdded = Math.max(...inventory.map(c => c.added));
+  grid.innerHTML = list.map(c => `
+    <article class="group rounded-xl bg-white shadow-sm hover:shadow-lg transition overflow-hidden flex flex-col ${c.sold ? 'opacity-70' : ''}">
+      <button type="button" data-detail="${esc(c.id)}" class="relative bg-coal-100 px-5 pt-6 pb-3 text-left" aria-label="See details for ${esc(title(c))}">
+        ${c.sold ? '<span class="absolute top-3 left-3 rounded bg-coal-900 text-white text-xs font-bold uppercase px-2 py-1">Sold</span>'
+          : (c.added >= newestAdded - 1 ? '<span class="absolute top-3 left-3 rounded bg-amber-500 text-xs font-bold uppercase px-2 py-1">New arrival</span>' : '')}
+        <div class="transition group-hover:-translate-y-1">${carSVG(c.body, c.color)}</div>
+      </button>
+      <div class="p-5 flex-1 flex flex-col">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-display text-2xl font-bold uppercase leading-tight">${esc(title(c))}</h3>
+          <p class="font-display text-2xl font-bold ${c.sold ? 'line-through text-coal-400' : ''}">${money(c.price)}</p>
+        </div>
+        <p class="text-sm text-coal-600">${esc(c.trim)}</p>
+        <ul class="mt-3 flex flex-wrap gap-1.5 text-xs font-semibold text-coal-700">
+          <li class="rounded bg-coal-100 px-2 py-1">${miles(c.miles)}</li>
+          <li class="rounded bg-coal-100 px-2 py-1">${esc(c.drive)}</li>
+          <li class="rounded bg-coal-100 px-2 py-1">${esc(c.body)}</li>
+          ${c.sold ? '' : `<li class="rounded bg-amber-400/25 px-2 py-1">~${money(monthly(c.price, c.price * 0.1))}/mo</li>`}
+        </ul>
+        <div class="mt-auto pt-5 grid grid-cols-2 gap-2">
+          <button type="button" data-detail="${esc(c.id)}" class="rounded-md border-2 border-coal-900 font-bold py-2 text-sm">Details</button>
+          ${c.sold
+            ? `<a href="sms:${PHONE}?body=${encodeURIComponent('Hi, I saw the sold ' + title(c) + '. Can you find me one like it?')}" class="text-center rounded-md bg-coal-900 text-white font-bold py-2.5 text-sm">Find me one</a>`
+            : `<a href="${smsLink(c)}" class="text-center rounded-md bg-amber-500 hover:bg-amber-400 font-bold py-2.5 text-sm">Text about it</a>`}
+        </div>
+      </div>
+    </article>`).join('');
+}
+
+function renderHero() {
+  const avail = inventory.filter(c => !c.sold);
+  const car = avail.find(c => c.featured) || avail.slice().sort((a, b) => b.added - a.added)[0];
+  const box = $('#hero-car').parentElement;
+  box.classList.toggle('hidden', !car);
+  if (!car) return;
+  $('#hero-car').innerHTML = carSVG(car.body, car.color);
+  $('#hero-car-title').textContent = title(car);
+  $('#hero-car-meta').textContent = `${car.trim} · ${miles(car.miles)} · ${car.drive}`;
+  $('#hero-car-price').textContent = money(car.price);
+  $('#hero-car-btn').dataset.detail = car.id;
+  const n = avail.length;
+  $('#hero-count').textContent = `(${n})`;
+}
+
+function renderAll() { fillMakes(); renderGrid(); renderHero(); renderAdmin(); }
+
+[fq, fmake, fbody, fprice, fsort].forEach(el => el.addEventListener('input', renderGrid));
+
+$('#hero-search').addEventListener('submit', e => {
+  e.preventDefault();
+  fmake.value = $('#hero-make').value;
+  fprice.value = $('#hero-price').value;
+  renderGrid();
+  $('#inventory').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* detail dialog */
+const carDialog = $('#car-dialog');
+function openDetail(id) {
+  const c = inventory.find(x => x.id === id);
+  if (!c) return;
+  $('#d-art').innerHTML = carSVG(c.body, c.color);
+  $('#d-title').textContent = title(c);
+  $('#d-sub').textContent = c.trim || '';
+  $('#d-price').textContent = c.sold ? 'Sold' : money(c.price);
+  $('#d-pay').textContent = c.sold ? '' : `about ${money(monthly(c.price, c.price * 0.1))}/mo with 10% down*`;
+  const specs = [['Mileage', miles(c.miles)], ['Drivetrain', c.drive], ['Body', c.body], ['Year', c.year]];
+  $('#d-specs').innerHTML = specs.map(([k, v]) => `<div class="rounded-lg bg-coal-100 p-3"><dt class="text-xs text-coal-600">${k}</dt><dd class="font-bold">${esc(v)}</dd></div>`).join('');
+  $('#d-desc').textContent = (c.desc || '') + (c.sold ? '' : ' *Estimate at ~10% APR over 60 months, before taxes and fees.');
+  const sms = $('#d-sms');
+  sms.href = smsLink(c);
+  sms.textContent = c.sold ? 'Find me one like it' : 'Text about this car';
+  carDialog.showModal();
+}
+document.addEventListener('click', e => {
+  const d = e.target.closest('[data-detail]');
+  if (d && d.dataset.detail) openDetail(d.dataset.detail);
+  if (e.target.closest('[data-open-admin]')) openAdmin();
+  const close = e.target.closest('[data-close]');
+  if (close) close.closest('dialog').close();
+});
+document.querySelectorAll('dialog').forEach(dlg => dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); }));
+
+/* calculator */
+(function () {
+  const p = $('#c-price'), d = $('#c-down'), t = $('#c-term'), a = $('#c-apr');
+  function calc() {
+    if (Number(d.value) > Number(p.value)) d.value = p.value;
+    $('#c-price-out').textContent = money(p.value);
+    $('#c-down-out').textContent = money(d.value);
+    $('#c-out').textContent = money(monthly(Number(p.value), Number(d.value), Number(a.value), Number(t.value)));
+  }
+  [p, d, t, a].forEach(el => el.addEventListener('input', calc));
+  calc();
+})();
+
+/* trade-in form */
+$('#trade-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const ok = f.vehicle.value.trim() && f.tname.value.trim() && f.tphone.value.replace(/\D/g, '').length >= 10 && f.consent.checked;
+  $('#trade-error').classList.toggle('hidden', !!ok);
+  if (!ok) return;
+  const msg = $('#trade-ok');
+  msg.textContent = `Thanks, ${f.tname.value.trim().split(' ')[0]}! We'll text you a value for your ${f.vehicle.value.trim()} today${f.preapproval.checked ? ', along with a link to get pre-approved' : ''}.`;
+  msg.classList.remove('hidden');
+  msg.focus();
+  f.querySelectorAll('input:not([type=checkbox])').forEach(i => i.value = '');
+});
+
+/* ---------- admin ---------- */
+const admin = $('#admin'), form = $('#car-form');
+function openAdmin() { resetForm(); renderAdmin(); admin.showModal(); }
+
+function renderAdmin() {
+  $('#a-count').textContent = `(${inventory.length})`;
+  const list = inventory.slice().sort((a, b) => (a.sold - b.sold) || (b.added - a.added));
+  $('#admin-list').innerHTML = list.map(c => `
+    <li class="bg-white rounded-lg p-3 flex items-center gap-3 shadow-sm">
+      <div class="w-20 shrink-0">${carSVG(c.body, c.color)}</div>
+      <div class="min-w-0 flex-1">
+        <p class="font-bold truncate">${esc(title(c))} ${c.featured ? '<span class="text-amber-600" title="Featured">★</span>' : ''}</p>
+        <p class="text-xs text-coal-600">${money(c.price)} · ${miles(c.miles)} · ${c.sold ? '<span class="font-bold text-coal-900">SOLD</span>' : 'Available'}</p>
+      </div>
+      <div class="flex flex-wrap justify-end gap-1.5 text-xs font-semibold">
+        <button type="button" data-edit="${esc(c.id)}" class="rounded border border-coal-200 px-2.5 py-1.5 hover:border-amber-500">Edit</button>
+        <button type="button" data-sold="${esc(c.id)}" class="rounded border border-coal-200 px-2.5 py-1.5 hover:border-amber-500">${c.sold ? 'Relist' : 'Mark sold'}</button>
+        <button type="button" data-del="${esc(c.id)}" class="rounded border border-coal-200 px-2.5 py-1.5 text-red-700 hover:border-red-700">Delete</button>
+      </div>
+    </li>`).join('') || '<li class="text-sm text-coal-600">No vehicles yet. Add your first one on the left.</li>';
+}
+
+function resetForm() {
+  form.reset();
+  form.elements.namedItem('id').value = '';
+  form.elements.namedItem('color').value = '#2f5d8a';
+  $('#form-title').textContent = 'Add a vehicle';
+  $('#form-cancel').classList.add('hidden');
+  $('#form-error').classList.add('hidden');
+}
+
+$('#admin-list').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.dataset.edit) {
+    const c = inventory.find(x => x.id === b.dataset.edit);
+    if (!c) return;
+    ['id', 'year', 'make', 'model', 'trim', 'price', 'miles', 'body', 'drive', 'desc'].forEach(k => form.elements.namedItem(k).value = c[k] ?? '');
+    form.elements.namedItem('color').value = safeColor(c.color);
+    form.elements.namedItem('featured').checked = !!c.featured;
+    $('#form-title').textContent = 'Edit vehicle';
+    $('#form-cancel').classList.remove('hidden');
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (b.dataset.sold) {
+    const c = inventory.find(x => x.id === b.dataset.sold);
+    if (c) { c.sold = !c.sold; if (c.sold) c.featured = false; saveInventory(); renderAll(); }
+  }
+  if (b.dataset.del) {
+    const c = inventory.find(x => x.id === b.dataset.del);
+    if (c && confirm(`Delete the ${title(c)}?`)) { inventory = inventory.filter(x => x.id !== c.id); saveInventory(); renderAll(); }
+  }
+});
+
+$('#form-cancel').addEventListener('click', resetForm);
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const g = k => form.elements.namedItem(k);
+  const year = parseInt(g('year').value, 10), price = Number(g('price').value), mi = Number(g('miles').value);
+  const ok = year >= 1980 && year <= 2030 && g('make').value.trim() && g('model').value.trim() && price > 0 && mi >= 0 && g('miles').value !== '';
+  $('#form-error').classList.toggle('hidden', !!ok);
+  if (!ok) return;
+  const data = {
+    year, price, miles: mi,
+    make: g('make').value.trim(), model: g('model').value.trim(), trim: g('trim').value.trim(),
+    body: g('body').value, drive: g('drive').value, color: safeColor(g('color').value),
+    desc: g('desc').value.trim(), featured: g('featured').checked
+  };
+  if (data.featured) inventory.forEach(c => c.featured = false);
+  const id = g('id').value;
+  if (id) {
+    const c = inventory.find(x => x.id === id);
+    if (c) Object.assign(c, data);
+  } else {
+    const added = Math.max(0, ...inventory.map(c => c.added || 0)) + 1;
+    inventory.push({ id: 'c' + Date.now(), sold: false, added, ...data });
+  }
+  saveInventory();
+  resetForm();
+  renderAll();
+});
+
+$('#reset-demo').addEventListener('click', () => {
+  if (!confirm('Restore the original demo inventory?')) return;
+  inventory = SEED.map(c => ({ ...c }));
+  saveInventory();
+  resetForm();
+  renderAll();
+});
+
+renderAll();
+
+/* ---------- animations ---------- */
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap) {
+    document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero-in', { y: 26, opacity: 0, duration: 0.75, ease: 'power3.out', stagger: 0.08 });
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.to(el, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  });
+})();
+</script>
+</body>
+</html>

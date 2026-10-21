@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Tech Lab | Website demos</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#f6f4ef; --ink:#15171a; --muted:#5c6168; --card:#fff; --line:#e3e1db; --accent:#ee9a1a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 16px; }
+  h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 8px; }
+  p.lead { color: var(--muted); margin: 0 0 32px; font-size: 18px; }
+  .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; color:inherit; text-decoration:none; transition: border-color .2s, transform .2s; }
+  a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tag { display:inline-block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#a86400; }
+  h2 { margin: 8px 0 6px; font-size: 22px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; line-height:1.5; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Website demos by BF Tech Lab</h1>
+  <p class="lead">Working examples of the websites we build for independent small businesses. The businesses shown are fictional.</p>
+  <div class="grid">
+    <a class="card" href="dental/">
+      <span class="tag">Dental practice</span>
+      <h2>Brookside Family Dental</h2>
+      <p>Online appointment requests in three steps, new patient info, insurance, team and hours.</p>
+    </a>
+    <a class="card" href="dealer/">
+      <span class="tag">Used car dealer</span>
+      <h2>Ridgeline Auto Sales</h2>
+      <p>Searchable inventory, one-tap text about any vehicle, payment estimator, and an admin to add and edit cars.</p>
+    </a>
+  </div>
+  <footer>BF Tech Lab · websites and automations for small businesses · <a href="mailto:bftechlabselling@gmail.com">bftechlabselling@gmail.com</a></footer>
+</main>
+</body>
+</html>
