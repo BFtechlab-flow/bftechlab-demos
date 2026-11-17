@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Med Spa | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a medical spa: treatments with prices, membership plans, provider profiles, complimentary consultation booking. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Med Spa | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a medical spa: treatments with prices, membership plans, provider profiles, complimentary consultation booking. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#8a6a58", "50": "#f7f1ec", "100": "#efe4dc", "700": "#6f5444"}, "accent": {"DEFAULT": "#d9c4a5", "600": "#b9a07c"}, "night": {"DEFAULT": "#2a2320", "800": "#352d29", "700": "#463c37"}, "ink": "#2a2320", "paper": "#fbf8f4", "line": "#ece2d6"}, "fontFamily": {"display": ["\"Bodoni Moda\"", "Georgia", "serif"], "sans": ["Manrope", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#8a6a58;--brand-ink:#ffffff;--accent:#d9c4a5;--paper:#fbf8f4;--ink:#2a2320; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-night text-white/90 text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Med Spa is a fictional med spa and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line text-ink">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Med Spa home">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-white font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl leading-none">BF <span class="text-brand">Med Spa</span><span class="block font-sans text-[10px] font-semibold tracking-[.2em] uppercase text-ink/50 mt-1">Aesthetics &middot; Skin &middot; Wellness</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#treatments" class="hover:opacity-70 transition">Treatments</a><a href="#membership" class="hover:opacity-70 transition">Membership</a><a href="#team" class="hover:opacity-70 transition">Providers</a><a href="#book" class="hover:opacity-70 transition">Consultation</a><a href="#visit" class="hover:opacity-70 transition">Visit</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550115" class="hidden xl:inline text-sm font-semibold text-brand">(555) 555-0115</a>
+      <a href="#book" class="rounded-full bg-brand hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 transition whitespace-nowrap">Free consultation</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 dots opacity-60" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-24 md:pt-20 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="hero-in inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1.5"><span class="w-2 h-2 rounded-full bg-brand"></span> Complimentary consultations</p>
+      <h1 class="hero-in font-display font-normal leading-[1.05] text-5xl sm:text-6xl lg:text-7xl mt-5">Natural results. <em class="text-brand">Expert hands.</em></h1>
+      <p class="hero-in mt-5 text-lg text-ink/75 max-w-lg">Wrinkle relaxers, fillers, facials, laser and skin treatments by licensed medical providers, planned around you in a calm, private space.</p>
+      <div class="hero-in mt-8 flex flex-wrap gap-3"><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Book a free consultation</a><a href="#treatments" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">View treatments</a></div>
+      <dl class="hero-in mt-10 grid grid-cols-3 gap-4 max-w-md"><div><dt class="text-xs text-ink/60">Treatments done</dt><dd class="font-display text-2xl mt-0.5">12,000+</dd></div><div><dt class="text-xs text-ink/60">Injectors</dt><dd class="font-display text-2xl mt-0.5">Nurse &amp; NP</dd></div><div><dt class="text-xs text-ink/60">Google rating</dt><dd class="font-display text-2xl mt-0.5">4.9&#9733;</dd></div></dl>
+    </div>
+    <div class="hero-in relative">
+      <div class="absolute -top-6 -right-6 w-44 h-44 rounded-full bg-accent/30 blur-2xl" aria-hidden="true"></div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1100&q=75&h=1300" alt="" fetchpriority="high" class="w-full aspect-[4/5] sm:aspect-square object-cover object-center rounded-[2rem] shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1782931684641-39b88b348e1e?auto=format&fit=crop&w=500&q=75&h=500" alt="" class="hidden sm:block absolute -top-5 -right-5 w-36 h-36 object-cover object-center rounded-full border-[6px] border-paper shadow-xl">
+        <div class="absolute left-4 right-4 -bottom-6 flex items-start gap-3 bg-paper text-ink rounded-2xl p-4 shadow-xl">
+          <span class="mt-0.5 inline-flex w-9 h-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></span>
+          <div><p class="font-semibold text-sm">Consultations this week: Thu &amp; Sat</p><p class="text-xs text-ink/60 mt-0.5">Tell us your goals and get an honest plan, with no pressure to book.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="treatments" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Treatments</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Look rested, not different</h2><p class="mt-4 text-lg text-ink/70">Every plan starts with a consultation. Prices are starting points; your provider confirms before treatment.</p></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1555820585-c5ae44394b79?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Wrinkle relaxers</h3><p class="mt-2 text-sm text-ink/70">Soften forehead lines, frown lines and crow's feet while keeping your natural expression.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $12 per unit</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1761718209708-9ab9ba1c7252?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Dermal fillers</h3><p class="mt-2 text-sm text-ink/70">Restore volume to lips, cheeks and under-eyes with subtle, balanced results.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $650 per syringe</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1731514771613-991a02407132?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Signature facials</h3><p class="mt-2 text-sm text-ink/70">Deep cleansing, exfoliation and hydration. You walk out glowing, with zero downtime.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $145</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1700760933574-9f0f4ea9aa3b?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Laser hair removal</h3><p class="mt-2 text-sm text-ink/70">Smooth skin on any area, with a laser that is safe for every skin tone.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $99 per session</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1573461160327-b450ce3d8e7f?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Chemical peels</h3><p class="mt-2 text-sm text-ink/70">Even out tone, fade sun spots and refine texture, from light to medium depth.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $175</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Microneedling</h3><p class="mt-2 text-sm text-ink/70">Collagen induction to smooth acne scars and fine lines, with optional PRP.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $325</p></div></article></div>
+  </div>
+</section>
+<section id="membership" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 items-center"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Membership</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Your skin, on a schedule</h2><p class="mt-4 text-lg text-ink/70">Consistent care gives the best results. Members save on every visit and can cancel any time after three months.</p></div></div><div class="lg:col-span-3 grid sm:grid-cols-2 gap-6"><div class="reveal relative rounded-3xl bg-white border border-line p-8 sm:p-10 flex flex-col"><p class="font-display text-4xl">Glow</p><p class="mt-4"><span class="font-display text-6xl">$99</span><span class="text-ink/60"> /month</span></p><ul class="mt-6 space-y-3 flex-1"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>One signature facial every month</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>10% off injectables and peels</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Member pricing on product</span></li></ul><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition w-full mt-8">Join after your consultation</a></div><div class="reveal relative rounded-3xl bg-night text-white p-8 sm:p-10 flex flex-col"><span class="absolute -top-3 left-8 rounded-full bg-accent text-night text-xs font-semibold uppercase tracking-wider px-3 py-1">Most loved</span><p class="font-display text-4xl">Radiance</p><p class="mt-4"><span class="font-display text-6xl">$179</span><span class="text-white/60"> /month</span></p><ul class="mt-6 space-y-3 flex-1"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>One signature facial or peel monthly</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>$100 injectables credit every quarter</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>15% off all treatments</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Priority booking</span></li></ul><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent hover:brightness-110 text-night font-bold px-6 py-3.5 transition w-full mt-8">Join after your consultation</a></div></div></div>
+  </div>
+</section>
+<section id="experience" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative lg:order-2"><img src="https://images.unsplash.com/photo-1759262151080-e05ba1c6294f?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-center rounded-3xl shadow-xl"></div><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">The experience</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">A calm, private space</h2><p class="mt-4 text-ink/70">Private treatment rooms, numbing for comfort and a follow-up check-in after every injectable appointment.</p><p class="mt-4 text-ink/70">Our medical director reviews every treatment plan, and your provider takes before-and-after photos so you can see your progress.</p><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Licensed nurse and NP injectors</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Medical director oversight</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Free two-week touch-up check</span></li></ul></div></div>
+  </div>
+</section>
+<section id="team" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Providers</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Meet your providers</h2></div><div class="mt-12 grid md:grid-cols-3 gap-8"><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1758600587391-338f5376b7ed?auto=format&fit=crop&w=640&q=75" alt="Nina Park, NP-C" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-2xl font-normal leading-snug mt-5">Nina Park, NP-C</h3><p class="text-sm font-semibold text-brand mt-1">Nurse practitioner &middot; Lead injector</p><p class="text-sm text-ink/70 mt-3">Ten years in aesthetic medicine. Known for natural lip and cheek work and very honest advice.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1765005204058-10418f5123c5?auto=format&fit=crop&w=640&q=75" alt="Danielle Brooks, RN" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-2xl font-normal leading-snug mt-5">Danielle Brooks, RN</h3><p class="text-sm font-semibold text-brand mt-1">Aesthetic nurse</p><p class="text-sm text-ink/70 mt-3">Wrinkle relaxers and skin boosters. Patients love her gentle technique and steady hands.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1758691737605-69a0e78bd193?auto=format&fit=crop&w=640&q=75" alt="Mei Chen, LE" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-2xl font-normal leading-snug mt-5">Mei Chen, LE</h3><p class="text-sm font-semibold text-brand mt-1">Licensed esthetician</p><p class="text-sm text-ink/70 mt-3">Facials, peels and laser treatments, with a focus on acne and sensitive skin.</p></article></div>
+  </div>
+</section>
+<section id="book" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Free consultation</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Start with a conversation</h2><p class="mt-4 text-lg text-white/70">Twenty minutes with a provider to talk through your goals, options and costs. No obligation to book a treatment.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Complimentary and no-pressure</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Personalized plan with clear prices</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Same-day treatment available if you choose</span></li></ul></div><div class="reveal lg:col-span-3"><form id="consult-form" data-steps class="rounded-2xl bg-white text-ink p-6 sm:p-8 shadow-2xl " novalidate>
+  <div class="h-1.5 rounded-full bg-line overflow-hidden" aria-hidden="true"><div data-bar class="h-full bg-brand transition-all duration-500" style="width:0"></div></div>
+  <p data-steplabel class="mt-3 text-xs font-semibold text-ink/60" aria-live="polite">Step 1 of 3</p>
+  <div class="mt-5"><div class="step"><h3 class="font-display text-2xl font-normal leading-snug">What are you interested in?</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">Select all that apply</legend><p class="text-sm font-semibold">Select all that apply</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Wrinkle relaxers" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Wrinkle relaxers</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Fillers" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Fillers</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Facials" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Facials</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Laser hair removal" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Laser hair removal</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Peels" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Peels</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Microneedling" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Microneedling</span></label><label class="chip cursor-pointer"><input type="checkbox" name="interest" value="Not sure yet" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Not sure yet</span></label></div></fieldset><label class="sm:col-span-2 block text-sm font-semibold">Your goals (optional)<textarea name="goals" rows="3" placeholder="e.g. look less tired, smoother skin before my wedding in June" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></textarea></label></div></div><div class="step"><h3 class="font-display text-2xl font-normal leading-snug">A little about you</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="block"><legend class="sr-only">Have you had aesthetic treatments before?</legend><p class="text-sm font-semibold">Have you had aesthetic treatments before? <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="before" value="Yes" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Yes</span></label><label class="chip cursor-pointer"><input type="radio" name="before" value="No" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">No</span></label></div></fieldset><fieldset class="block"><legend class="sr-only">Best time for a consultation</legend><p class="text-sm font-semibold">Best time for a consultation <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="when" value="Weekday daytime" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Weekday daytime</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="Weekday evening" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Weekday evening</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="Saturday" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Saturday</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-2xl font-normal leading-snug">Your details</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Mobile number <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="sm:col-span-2 block text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted by phone, text or email about this request.</label></div></div></div>
+  <p data-err hidden class="mt-4 text-sm font-semibold text-red-600" role="alert">Please complete this step to continue.</p>
+  <div data-done hidden tabindex="-1" data-msg="Thank you, {name}. Our patient coordinator will call to book your complimentary consultation." class="text-center py-8">
+    <div class="mx-auto w-14 h-14 rounded-full bg-brand text-white grid place-items-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3 class="font-display text-2xl font-normal leading-snug mt-5">Thank you</h3><p data-done-msg class="mt-2 text-ink/70 max-w-md mx-auto"></p>
+    <p class="mt-4 text-xs text-ink/50">Demo: on a live site this request goes straight to your phone and inbox.</p>
+  </div>
+  <div data-nav class="mt-8 flex items-center justify-between gap-3">
+    <button type="button" data-back class="invisible rounded-full px-5 py-3 text-sm font-semibold hover:bg-brand-50 transition">&larr; Back</button>
+    <button type="button" data-next class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Continue</button>
+    <button type="submit" data-submit hidden class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Request consultation</button>
+  </div>
+</form></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Reviews</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Kind words from clients</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Nina talked me out of more filler than I needed. The result is so natural my friends just say I look rested."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"The calmest spa I've ever been to. My skin has never looked better since starting the Glow membership."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Laser hair removal on darker skin, done safely and with real care. Six sessions in and I'm thrilled."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-ink/55">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Visit</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Find us at Willow Court</h2><address class="not-italic mt-6 text-ink/80">8 Willow Court, Suite 210<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">Second floor, elevator access, free parking in the courtyard.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday</th><td class="py-2.5 text-right">Closed</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Tuesday &ndash; Friday</th><td class="py-2.5 text-right">10:00 am &ndash; 7:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">9:00 am &ndash; 4:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Closed</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Free consultation</a><a href="tel:+15555550115" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Call (555) 555-0115</a></div></div><div class="reveal rounded-3xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1761971976407-db2374e4ae12?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Private treatment rooms</p><a href="https://maps.google.com/?q=8+Willow+Court,+Suite+210+Brookside,+PA+00000" class="rounded-full bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-paper py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">FAQ</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Is the consultation really free?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes. It's a 20-minute appointment with a provider, with no charge and no obligation to book a treatment.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Does it hurt?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Most treatments are very comfortable. We use numbing cream and ice for injectables and tell you what to expect at every step.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How much downtime should I expect?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Facials and wrinkle relaxers have none. Fillers and peels may cause mild redness or swelling for a day or two.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Who performs the treatments?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Licensed nurses, nurse practitioners and estheticians, under the supervision of our medical director.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you offer payment plans?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes, we offer monthly payment options for larger treatment plans, subject to approval.</p></details></div>
+  </div>
+</section>
+</main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Med Spa</p><p class="mt-2">8 Willow Court, Suite 210<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550115" class="hover:text-white">(555) 555-0115</a><br><a href="#book" class="hover:text-white">Free consultation</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  <p class="max-w-6xl mx-auto px-4 sm:px-6 pb-6 text-xs text-white/45">Treatments are performed by licensed medical professionals under the supervision of a medical director. Individual results vary.</p>
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Med Spa (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550115" class="flex-1 text-center rounded-full border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#book" class="flex-[2] text-center rounded-full bg-accent text-night font-bold py-3 text-sm">Free consultation</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>

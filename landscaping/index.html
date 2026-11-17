@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Landscapes | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a landscaping company: lawn care plan builder with live pricing, project gallery, free quote requests. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Landscapes | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a landscaping company: lawn care plan builder with live pricing, project gallery, free quote requests. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1597201278257-3687be27d954?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#2f6b3c", "50": "#eef6ee", "100": "#dcebdc", "700": "#245530"}, "accent": {"DEFAULT": "#c9dc6b", "600": "#b3c955"}, "night": {"DEFAULT": "#13261a", "800": "#1a3223", "700": "#24412e"}, "ink": "#16261b", "paper": "#f6f5ee", "line": "#e1e3d3"}, "fontFamily": {"display": ["\"DM Serif Display\"", "Georgia", "serif"], "sans": ["\"DM Sans\"", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#2f6b3c;--brand-ink:#ffffff;--accent:#c9dc6b;--paper:#f6f5ee;--ink:#16261b; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-night text-white/90 text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Landscapes is a fictional landscaping company and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line text-ink">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Landscapes home">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-white font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl leading-none">BF <span class="text-brand">Landscapes</span><span class="block font-sans text-[10px] font-semibold tracking-[.2em] uppercase text-ink/50 mt-1">Design &middot; Lawn care &middot; Outdoor living</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#services" class="hover:opacity-70 transition">Services</a><a href="#plan" class="hover:opacity-70 transition">Lawn plans</a><a href="#work" class="hover:opacity-70 transition">Our work</a><a href="#about" class="hover:opacity-70 transition">About</a><a href="#visit" class="hover:opacity-70 transition">Contact</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550170" class="hidden xl:inline text-sm font-semibold text-brand">(555) 555-0170</a>
+      <a href="#quote" class="rounded-full bg-brand hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 transition whitespace-nowrap">Free quote</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative bg-night text-white overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1597201278257-3687be27d954?auto=format&fit=crop&w=2000&q=75" alt="" class="absolute inset-0 w-full h-full object-cover object-center opacity-65" fetchpriority="high">
+  <div class="absolute inset-0 bg-gradient-to-r from-night via-night/80 to-night/25" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night/60 to-transparent" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-24 md:pt-32 md:pb-40 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-9">
+      <p class="hero-in text-sm font-semibold text-accent uppercase tracking-wider">Design &middot; Build &middot; Maintain</p>
+      <h1 class="hero-in font-display font-normal leading-[1.02] text-5xl sm:text-6xl lg:text-7xl mt-4">A yard you'll actually <em class="text-accent">want to spend time in.</em></h1>
+      <p class="hero-in mt-6 text-lg text-white/80 max-w-xl">Weekly lawn care, garden design and patios built to last, from one local crew that answers the phone and shows up on the same day every week.</p>
+      <div class="hero-in mt-8 flex flex-wrap gap-3"><a href="#quote" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent hover:brightness-110 text-night font-bold px-6 py-3.5 transition">Get a free quote</a><a href="#work" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 hover:border-white text-white font-semibold px-6 py-3 transition">See our work</a></div>
+      <ul class="hero-in mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80"><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Free on-site estimate</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Licensed &amp; insured</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Love it or we redo it</li></ul>
+    </div>
+    
+  </div>
+</section>
+<section class="bg-white border-line border-y"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8"><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-normal">650+</p><p class="mt-1 text-sm text-ink/60">Weekly lawn clients</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-normal">Since 2011</p><p class="mt-1 text-sm text-ink/60">Family owned</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-normal">48 h</p><p class="mt-1 text-sm text-ink/60">Design quotes</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-normal">4.9&#9733;</p><p class="mt-1 text-sm text-ink/60">Average rating (sample)</p></div></div></section>
+<section id="services" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Services</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Everything outside, handled</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1690068023694-053da714f95f?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Weekly lawn care</h3><p class="mt-2 text-sm text-ink/70">Mowing, edging, trimming and blowing on the same day each week, April to November.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1759891038233-9e55634b9838?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Garden design &amp; planting</h3><p class="mt-2 text-sm text-ink/70">Beds that bloom from spring to fall, designed for your sun, soil and budget.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1602860739945-9a61573cd62d?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Patios &amp; hardscape</h3><p class="mt-2 text-sm text-ink/70">Paver patios, walkways, retaining walls and fire pits, built on a proper base.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1594353162824-a8b237f9adae?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Outdoor lighting</h3><p class="mt-2 text-sm text-ink/70">Low-voltage LED path, garden and tree lighting on a timer. Safer and beautiful.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1761839259494-71caddcdd6b3?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Tree &amp; shrub care</h3><p class="mt-2 text-sm text-ink/70">Pruning, shaping and seasonal feeding to keep everything healthy and tidy.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1734079692079-172d8243ebd3?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-normal leading-snug">Seasonal cleanups</h3><p class="mt-2 text-sm text-ink/70">Spring and fall cleanups, leaf removal, mulch and hedge trimming.</p></div></article></div>
+  </div>
+</section>
+<section id="plan" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-10 items-start"><div><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Lawn care plans</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Build your plan, see your price</h2><p class="mt-4 text-lg text-ink/70">Pick your lawn size and the extras you want. No contracts: pause or cancel any time.</p></div><form id="planner" class="reveal mt-8 space-y-7" onsubmit="return false"><label class="block text-sm font-semibold">Lawn size <span id="p-size-out" class="float-right text-brand"></span><input id="p-size" type="range" min="2000" max="20000" step="500" value="6000" class="w-full mt-3"></label><div><p class="text-sm font-semibold">Mowing</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="freq" value="4.33" class="sr-only" checked><span class="inline-block rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">Weekly</span></label><label class="chip cursor-pointer"><input type="radio" name="freq" value="2.17" class="sr-only"><span class="inline-block rounded-full border border-line bg-white px-4 py-2 text-sm font-medium">Every two weeks</span></label></div></div><div><p class="text-sm font-semibold">Add-ons</p><div class="mt-3 grid sm:grid-cols-2 gap-2"><label class="flex items-center justify-between gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm cursor-pointer"><span class="flex items-center gap-3"><input type="checkbox" name="add" value="45" data-label="Fertilization program" class="w-4 h-4" style="accent-color:var(--brand)">Fertilization program</span><span class="text-ink/50">+$45</span></label><label class="flex items-center justify-between gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm cursor-pointer"><span class="flex items-center gap-3"><input type="checkbox" name="add" value="25" data-label="Weed control" class="w-4 h-4" style="accent-color:var(--brand)">Weed control</span><span class="text-ink/50">+$25</span></label><label class="flex items-center justify-between gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm cursor-pointer"><span class="flex items-center gap-3"><input type="checkbox" name="add" value="20" data-label="Aeration &amp; overseeding" class="w-4 h-4" style="accent-color:var(--brand)">Aeration &amp; overseeding</span><span class="text-ink/50">+$20</span></label><label class="flex items-center justify-between gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm cursor-pointer"><span class="flex items-center gap-3"><input type="checkbox" name="add" value="15" data-label="Fall leaf cleanup" class="w-4 h-4" style="accent-color:var(--brand)">Fall leaf cleanup</span><span class="text-ink/50">+$15</span></label><label class="flex items-center justify-between gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm cursor-pointer"><span class="flex items-center gap-3"><input type="checkbox" name="add" value="30" data-label="Shrub trimming" class="w-4 h-4" style="accent-color:var(--brand)">Shrub trimming</span><span class="text-ink/50">+$30</span></label></div></div></form></div><div class="reveal lg:sticky lg:top-24 rounded-3xl bg-night text-white p-8 sm:p-10"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Your plan</p><p class="font-display text-6xl mt-3"><span id="p-total"></span><span class="text-xl text-white/60 font-sans">/month</span></p><p class="mt-2 text-white/70"><span id="p-visit"></span> per mowing visit &middot; <span id="p-visits"></span> visits a month</p><ul id="p-list" class="mt-6 space-y-2 text-sm text-white/80"></ul><a href="#quote" id="p-cta" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent hover:brightness-110 text-night font-bold px-6 py-3.5 transition w-full mt-8">Lock in this plan</a><p class="mt-4 text-xs text-white/50">First mow free for new clients. Example prices for this demo.</p></div></div>
+  </div>
+</section>
+<section id="work" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Our work</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Recent projects</h2></div><div class="mt-12 grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-3"><figure class="reveal group relative overflow-hidden rounded-2xl md:col-span-2 md:row-span-2"><img src="https://images.unsplash.com/photo-1782594700873-bbeefef37e11?auto=format&fit=crop&w=900&q=75" alt="Front lawn renovation &middot; Brookside" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Front lawn renovation &middot; Brookside</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1772040942277-b194d9d0b648?auto=format&fit=crop&w=600&q=75" alt="Poolside planting &middot; Oak Ridge" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Poolside planting &middot; Oak Ridge</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1769503236428-7773271074cf?auto=format&fit=crop&w=600&q=75" alt="Cedar pergola &amp; pavers &middot; Riverton" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Cedar pergola &amp; pavers &middot; Riverton</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?auto=format&fit=crop&w=600&q=75" alt="Modern entry garden &middot; Fairview" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Modern entry garden &middot; Fairview</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1764969370921-7c8df49171cd?auto=format&fit=crop&w=600&q=75" alt="Weekly lawn care &middot; Hillcrest" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Weekly lawn care &middot; Hillcrest</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1658692051708-519fbdac7e8f?auto=format&fit=crop&w=600&q=75" alt="Garden lighting &middot; Cedar Falls" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Garden lighting &middot; Cedar Falls</figcaption></figure></div>
+  </div>
+</section>
+<section id="about" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative"><img src="https://images.unsplash.com/photo-1734079692160-fcbe4be6ab96?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-center rounded-3xl shadow-xl"></div><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">About us</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">One crew, one phone number, every week</h2><p class="mt-4 text-ink/70">Luis and Ana Ortega started BF Landscapes in 2011 with a trailer and two mowers. Today 28 people keep 650 yards looking their best.</p><p class="mt-4 text-ink/70">Your crew leader stays the same all season, knows your yard and texts you after every visit, so you never wonder if we came.</p><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Same day every week, text after every visit</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pet-safe and kid-safe treatment options</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Licensed, insured and background-checked</span></li></ul></div></div>
+  </div>
+</section>
+<section id="how" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">How it works</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">From first walk-through to a yard you love</h2></div><div class="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-5"><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-normal">01</p><h3 class="font-display text-2xl font-normal leading-snug mt-3">Free walk-through</h3><p class="text-sm text-ink/70 mt-2">We visit, listen to what you want and measure everything.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-normal">02</p><h3 class="font-display text-2xl font-normal leading-snug mt-3">Design &amp; quote</h3><p class="text-sm text-ink/70 mt-2">You get a drawing and a clear price within 48 hours.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-normal">03</p><h3 class="font-display text-2xl font-normal leading-snug mt-3">Build or start</h3><p class="text-sm text-ink/70 mt-2">We build your project or start your weekly care on a date that suits you.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-normal">04</p><h3 class="font-display text-2xl font-normal leading-snug mt-3">Ongoing care</h3><p class="text-sm text-ink/70 mt-2">Same crew, same day, with a text after every visit.</p></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Reviews</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Happy yards, happy neighbors</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-2xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"They redid our front yard in a week. Neighbors keep stopping to ask who did it."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"Same crew every Tuesday, text with a photo when they're done. Never have to think about the lawn anymore."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"The patio and lighting turned our backyard into the place everyone wants to hang out."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample client · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-white/50">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="quote" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Free quote</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Tell us about your yard</h2><p class="mt-4 text-lg text-white/70">We'll come out, walk the property with you and send a written quote within 48 hours.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>No-obligation, on-site estimate</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Written quote with a drawing for design projects</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Flexible start dates, spring fills fast</span></li></ul></div><div class="reveal lg:col-span-3"><form id="quote-form" data-demo class="grid sm:grid-cols-2 gap-4 rounded-3xl bg-white text-ink p-6 sm:p-8 shadow-2xl" novalidate><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Mobile number <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Property address <span class="text-red-600" aria-hidden="true">*</span><input name="address" type="text" required autocomplete="street-address" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><fieldset class="sm:col-span-2 block"><legend class="sr-only">What are you interested in?</legend><p class="text-sm font-semibold">What are you interested in?</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Weekly lawn care" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Weekly lawn care</span></label><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Garden design" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Garden design</span></label><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Patio or hardscape" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Patio or hardscape</span></label><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Lighting" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Lighting</span></label><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Cleanup" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Cleanup</span></label><label class="chip cursor-pointer"><input type="checkbox" name="services" value="Tree &amp; shrub care" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Tree &amp; shrub care</span></label></div></fieldset><label class="sm:col-span-2 block text-sm font-semibold">Tell us about your yard<textarea name="message" rows="3" placeholder="e.g. front beds need a refresh, thinking about a patio out back" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></textarea></label><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted by phone, text or email about this request.</label><p data-err hidden class="sm:col-span-2 text-sm font-semibold text-red-600" role="alert">Please fill in the required fields.</p><div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-3"><button class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Request free quote</button><p class="text-xs opacity-60">Demo: on a live site this request goes straight to your phone and inbox.</p></div><p data-ok data-msg="Thanks, {name}! We'll call within one business day to book your free walk-through." hidden tabindex="-1" class="sm:col-span-2 rounded-2xl bg-brand-50 text-ink border border-brand/20 font-semibold p-4"></p></form></div></div>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Contact</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Visit the yard</h2><address class="not-italic mt-6 text-ink/80">31 Greenway Road<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">Office and stone yard: see pavers, wall blocks and plant samples.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday &ndash; Friday</th><td class="py-2.5 text-right">7:00 am &ndash; 6:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday (Apr &ndash; Nov)</th><td class="py-2.5 text-right">8:00 am &ndash; 2:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Closed</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="tel:+15555550170" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Call (555) 555-0170</a><a href="#quote" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Free quote</a></div></div><div class="reveal rounded-3xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1784293449032-200db587788c?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Stone yard &amp; plant samples on site</p><a href="https://maps.google.com/?q=31+Greenway+Road+Brookside,+PA+00000" class="rounded-full bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">FAQ</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.05] mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do I have to sign a contract?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">No. Weekly plans are month to month. Pause for vacation or cancel any time with a week's notice.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do I need to be home?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">No. Just leave gates unlocked and dogs inside. We text you a photo when we're done.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Are your products safe for pets and kids?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">We offer organic and pet-safe options for every treatment, and we always flag the yard after spraying.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">What areas do you serve?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Brookside and towns within 15 miles, including Oak Ridge, Riverton, Fairview and Hillcrest.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you do snow removal?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes, for weekly clients only, with per-push or seasonal pricing.</p></details></div>
+  </div>
+</section>
+</main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Landscapes</p><p class="mt-2">31 Greenway Road<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550170" class="hover:text-white">(555) 555-0170</a><br><a href="#quote" class="hover:text-white">Free quote</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Landscapes (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550170" class="flex-1 text-center rounded-full border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#quote" class="flex-[2] text-center rounded-full bg-accent text-night font-bold py-3 text-sm">Free quote</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+
+(function () {
+  const f = $('#planner'); if (!f) return;
+  const size = $('#p-size');
+  function calc() {
+    const sq = Number(size.value), freq = Number(f.querySelector('[name=freq]:checked').value);
+    const visit = Math.round(28 + sq / 1000 * 4.2);
+    const adds = $$('[name=add]:checked', f);
+    const total = Math.round(visit * freq + adds.reduce((s, a) => s + Number(a.value), 0));
+    $('#p-size-out').textContent = sq.toLocaleString('en-US') + ' sq ft';
+    $('#p-visit').textContent = money(visit); $('#p-visits').textContent = freq > 3 ? 'about 4' : 'about 2';
+    $('#p-total').textContent = money(total);
+    $('#p-list').innerHTML = [`<li>&#10003; Mowing ${freq > 3 ? 'weekly' : 'every two weeks'}, edging &amp; blowing</li>`]
+      .concat(adds.map(a => `<li>&#10003; ${a.dataset.label}</li>`)).join('');
+  }
+  f.addEventListener('input', calc); f.addEventListener('change', calc); calc();
+  $('#p-cta').addEventListener('click', () => {
+    const m = $('#quote-form').elements.namedItem('message');
+    m.value = `Lawn plan: ${size.value} sq ft, ${$('#p-total').textContent}/month` ;
+    const lawn = $('#quote-form').querySelector('input[name=services][value="Weekly lawn care"]'); if (lawn) lawn.checked = true;
+  });
+})();
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>

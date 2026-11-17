@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Roofing | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a local roofing contractor: free inspection requests, roof cost estimator, project gallery. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Roofing | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a local roofing contractor: free inspection requests, roof cost estimator, project gallery. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1635424709845-3a85ad5e1f5e?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#d9502b", "50": "#fdf2ee", "100": "#fbe3da", "700": "#b8401c"}, "accent": {"DEFAULT": "#e4572e", "600": "#c8461f"}, "night": {"DEFAULT": "#16181b", "800": "#1f2226", "700": "#2b2f34"}, "ink": "#16181b", "paper": "#f4f3f1", "line": "#e0ddd8"}, "fontFamily": {"display": ["Oswald", "Impact", "sans-serif"], "sans": ["\"Source Sans 3\"", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#d9502b;--brand-ink:#ffffff;--accent:#e4572e;--paper:#f4f3f1;--ink:#16181b; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  #estimator .chip input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-accent text-white font-medium text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Roofing is a fictional roofing company and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-night text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Roofing home">
+      <span class="grid place-items-center w-10 h-10 rounded-lg bg-accent text-white font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl sm:text-2xl font-bold tracking-wide uppercase leading-none">BF Roofing<span class="block text-[10px] sm:text-[11px] font-semibold tracking-[.22em] text-accent mt-0.5">Roof replacement &middot; Repairs &middot; Storm damage</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#services" class="hover:opacity-70 transition">Services</a><a href="#estimate" class="hover:opacity-70 transition">Cost estimator</a><a href="#work" class="hover:opacity-70 transition">Our work</a><a href="#reviews" class="hover:opacity-70 transition">Reviews</a><a href="#visit" class="hover:opacity-70 transition">Contact</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550160" class="hidden xl:inline text-sm font-semibold text-accent">(555) 555-0160</a>
+      <a href="#inspect" class="rounded-md bg-accent hover:brightness-110 text-white text-sm font-bold px-4 py-2.5 transition whitespace-nowrap">Free inspection</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative bg-night text-white overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1635424709845-3a85ad5e1f5e?auto=format&fit=crop&w=2000&q=75" alt="" class="absolute inset-0 w-full h-full object-cover object-top opacity-55" fetchpriority="high">
+  <div class="absolute inset-0 bg-gradient-to-r from-night via-night/80 to-night/25" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night/60 to-transparent" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 md:pt-24 md:pb-28 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7">
+      <p class="hero-in text-accent font-semibold uppercase tracking-[.2em] text-xs">Licensed &middot; Insured &middot; 25-year workmanship warranty</p>
+      <h1 class="hero-in font-display font-bold uppercase leading-[.95] text-5xl sm:text-6xl lg:text-7xl mt-4">A new roof in one day. <span class="text-accent">Built for the next 25 years.</span></h1>
+      <p class="hero-in mt-6 text-lg text-white/80 max-w-xl">Free inspections with photos of every problem, straight answers on repair or replace, and real help with your insurance claim after a storm.</p>
+      <div class="hero-in mt-8 flex flex-wrap gap-3"><a href="#inspect" class="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:brightness-110 text-white font-bold px-6 py-3.5 transition">Get a free inspection</a><a href="tel:+15555550160" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/30 hover:border-accent text-white font-bold px-6 py-3 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> (555) 555-0160</a></div>
+      <ul class="hero-in mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80"><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Own crews, no subcontractors</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Financing from 0% APR</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Insurance claim help</li></ul>
+    </div>
+    <div class="hero-in lg:col-span-5"><form id="quickinspect" data-demo class="grid sm:grid-cols-2 gap-4 bg-white text-ink rounded-xl p-6 shadow-2xl" novalidate><p class="sm:col-span-2 font-display text-2xl font-bold uppercase">Free roof inspection</p><p class="sm:col-span-2 -mt-2 text-sm text-ink/60">Photos of every issue, no obligation.</p><fieldset class="sm:col-span-2 block"><legend class="sr-only">Reason</legend><p class="text-sm font-semibold">Reason <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="reason" value="Leak" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Leak</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Storm damage" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Storm damage</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Old roof" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Old roof</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Selling my home" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Selling my home</span></label></div></fieldset><label class="block text-sm font-semibold">ZIP code <span class="text-red-600" aria-hidden="true">*</span><input name="zip" type="text" required inputmode="numeric" maxlength="5" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Mobile number <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><p data-err hidden class="sm:col-span-2 text-sm font-semibold text-red-600" role="alert">Please fill in the required fields.</p><div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-3"><button class="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:brightness-110 text-white font-bold px-6 py-3.5 transition">Book my inspection</button><p class="text-xs opacity-60">Most inspections within 48 hours</p></div><p data-ok data-msg="Thanks! We'll call you today to book your free inspection ({reason})." hidden tabindex="-1" class="sm:col-span-2 rounded-xl bg-brand-50 text-ink border border-brand/20 font-semibold p-4"></p></form></div>
+  </div>
+</section>
+<section class="bg-white border-line border-y"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8"><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">1,800+</p><p class="mt-1 text-sm text-ink/60">Roofs installed</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">25 years</p><p class="mt-1 text-sm text-ink/60">Workmanship warranty</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">1 day</p><p class="mt-1 text-sm text-ink/60">Typical install</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">4.9&#9733;</p><p class="mt-1 text-sm text-ink/60">Average rating (sample)</p></div></div></section>
+<section id="services" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">What we do</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Roofing, gutters and everything up top</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Roof replacement</h3><p class="mt-2 text-sm text-ink/70">Full tear-off, new underlayment, ice and water shield, and architectural shingles, usually in one day.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Free quote in 24 hours</p></div></article><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1633759593085-1eaeb724fc88?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Roof repair</h3><p class="mt-2 text-sm text-ink/70">Leaks, missing shingles, flashing and vents fixed fast, with photos before and after.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Repairs from $350</p></div></article><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Storm &amp; hail damage</h3><p class="mt-2 text-sm text-ink/70">We document the damage, meet your adjuster on the roof and handle the paperwork.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Insurance claim help</p></div></article><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1779941373840-a93f6e0d5db0?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Metal roofing</h3><p class="mt-2 text-sm text-ink/70">Standing-seam metal that lasts 50+ years, sheds snow and cuts cooling costs.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">40-year paint warranty</p></div></article><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1566071634551-224a639a1c7d?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Gutters &amp; downspouts</h3><p class="mt-2 text-sm text-ink/70">Seamless aluminum gutters made on site in 20 colors, with optional leaf guards.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">From $11 per foot</p></div></article><article class="reveal group overflow-hidden rounded-xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1710139323182-69622cad5c3b?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Ventilation &amp; skylights</h3><p class="mt-2 text-sm text-ink/70">Ridge vents, attic fans and leak-free skylights to keep your attic dry and cool.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Free attic check</p></div></article></div>
+  </div>
+</section>
+<section id="estimate" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-10 items-start"><div><div class="reveal max-w-2xl"><p class="text-accent font-semibold uppercase tracking-[.2em] text-xs">Cost estimator</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">What would a new roof cost?</h2><p class="mt-4 text-lg text-white/70">Move the sliders for a ballpark range. Your free inspection gives you an exact, written quote.</p></div><form id="estimator" class="reveal mt-8 space-y-6" onsubmit="return false"><label class="block text-sm font-semibold">Home size <span id="e-size-out" class="float-right text-accent"></span><input id="e-size" type="range" min="1000" max="5000" step="100" value="2200" class="w-full mt-3"></label><div><p class="text-sm font-semibold">Stories</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="stories" value="1" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">1</span></label><label class="chip cursor-pointer"><input type="radio" name="stories" value="2" class="sr-only" checked><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">2</span></label><label class="chip cursor-pointer"><input type="radio" name="stories" value="3" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">3</span></label></div></div><div><p class="text-sm font-semibold">Roof shape</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="pitch" value="1.12" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Simple</span></label><label class="chip cursor-pointer"><input type="radio" name="pitch" value="1.25" class="sr-only" checked><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Medium</span></label><label class="chip cursor-pointer"><input type="radio" name="pitch" value="1.4" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Complex</span></label></div></div><div><p class="text-sm font-semibold">Material</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="mat" value="1" class="sr-only" checked><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Architectural shingles</span></label><label class="chip cursor-pointer"><input type="radio" name="mat" value="2" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Premium shingles</span></label><label class="chip cursor-pointer"><input type="radio" name="mat" value="3" class="sr-only"><span class="inline-block rounded-md border border-white/20 px-4 py-2 text-sm font-semibold">Standing-seam metal</span></label></div></div></form></div><div class="reveal rounded-xl bg-white text-ink p-7 sm:p-8 lg:mt-16"><p class="text-sm font-semibold text-ink/60">Estimated price range</p><p class="font-display text-5xl font-bold mt-2"><span id="e-low"></span> &ndash; <span id="e-high"></span></p><p class="mt-3 text-ink/70">or about <strong id="e-month" class="text-ink"></strong> per month with financing*</p><p class="mt-1 text-sm text-ink/50">Roof area about <span id="e-area"></span> sq ft</p><a href="#inspect" class="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:brightness-110 text-white font-bold px-6 py-3.5 transition w-full mt-7">Get my exact quote</a><p class="mt-4 text-xs text-ink/50">*Example: 120 months at 7.99% APR, subject to credit approval. Ballpark figures for this demo.</p></div></div>
+  </div>
+</section>
+<section id="work" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">Our work</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Recent roofs around Brookside</h2></div><div class="mt-12 grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-3"><figure class="reveal group relative overflow-hidden rounded-xl md:col-span-2 md:row-span-2"><img src="https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=900&q=75" alt="Architectural shingles &middot; Oak Ridge" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Architectural shingles &middot; Oak Ridge</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1781797221329-c3d083ab6d99?auto=format&fit=crop&w=600&q=75" alt="Full replacement &middot; Brookside" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Full replacement &middot; Brookside</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1762374974129-f9266d9c4efc?auto=format&fit=crop&w=600&q=75" alt="Storm damage claim &middot; Riverton" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Storm damage claim &middot; Riverton</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1759105734106-47594c3eea11?auto=format&fit=crop&w=600&q=75" alt="Standing-seam metal &middot; Fairview" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Standing-seam metal &middot; Fairview</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?auto=format&fit=crop&w=600&q=75" alt="New gutters &amp; roof &middot; Cedar Falls" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">New gutters &amp; roof &middot; Cedar Falls</figcaption></figure><figure class="reveal group relative overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=600&q=75" alt="Porch roof repair &middot; Hillcrest" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105"><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">Porch roof repair &middot; Hillcrest</figcaption></figure></div>
+  </div>
+</section>
+<section id="how" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">How it works</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">From first call to final walkthrough</h2></div><div class="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-5"><div class="reveal rounded-xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">01</p><h3 class="font-display text-2xl font-bold uppercase leading-tight mt-3">Free inspection</h3><p class="text-sm text-ink/70 mt-2">We check the roof, attic and gutters, and text you photos of every issue.</p></div><div class="reveal rounded-xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">02</p><h3 class="font-display text-2xl font-bold uppercase leading-tight mt-3">Clear proposal</h3><p class="text-sm text-ink/70 mt-2">Repair or replace, options and prices in writing. No pressure, no expiring deals.</p></div><div class="reveal rounded-xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">03</p><h3 class="font-display text-2xl font-bold uppercase leading-tight mt-3">Install day</h3><p class="text-sm text-ink/70 mt-2">Our own crew tears off, installs and cleans up with a magnetic nail sweep.</p></div><div class="reveal rounded-xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">04</p><h3 class="font-display text-2xl font-bold uppercase leading-tight mt-3">Walkthrough &amp; warranty</h3><p class="text-sm text-ink/70 mt-2">We walk the job with you and register your 25-year workmanship warranty.</p></div></div>
+  </div>
+</section>
+<section id="about" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative"><img src="https://images.unsplash.com/photo-1635424825057-7fb6dcd651ef?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-top rounded-xl shadow-xl"><div class="absolute -bottom-6 left-4 sm:left-6 flex items-center gap-3 bg-white rounded-xl shadow-xl p-3 pr-5"><img src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?auto=format&fit=crop&w=200&q=75&h=200" alt="Dan Kowalski" class="w-14 h-14 rounded-lg object-cover object-top"><div><p class="font-bold text-sm">Dan Kowalski</p><p class="text-xs text-ink/60">Owner</p></div></div></div><div class="reveal"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">Family owned since 1998</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">We only send our own crews</h2><p class="mt-4 text-ink/70">Dan Kowalski started on roofs at 17. Today his company has six full-time crews, all employees, all trained in-house.</p><p class="mt-4 text-ink/70">That means the people on your roof are the people we know, insure and stand behind for 25 years.</p><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Manufacturer-certified installers</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Fully licensed and insured, $2M liability</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Written warranty transferable to the next owner</span></li></ul></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-accent font-semibold uppercase tracking-[.2em] text-xs">Reviews</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Homeowners on their new roofs</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"After the hailstorm they met our adjuster on the roof. Insurance covered the full replacement and the crew finished in a day."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample homeowner · Sample review</figcaption></figure><figure class="reveal rounded-xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"They sent photos of every damaged spot. Turned out we only needed a repair, not a new roof. That's honesty."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample homeowner · Sample review</figcaption></figure><figure class="reveal rounded-xl border border-white/10 bg-night-800 p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-white/85">"Not a single nail in the driveway. They even cleaned the gutters before leaving."</blockquote><figcaption class="mt-4 text-xs text-white/50">Sample homeowner · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-white/50">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="inspect" class="bg-brand-50 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">Free inspection</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Book your free roof inspection</h2><p class="mt-4 text-lg text-ink/70">Takes 45 minutes. You don't need to be home if we can reach the roof safely; we'll send everything by text and email.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Photos of every issue, sent the same day</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Honest advice: repair when repair is enough</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Written quote valid for 90 days</span></li></ul></div><div class="reveal lg:col-span-3"><form id="inspect-form" data-steps class="rounded-xl bg-white text-ink p-6 sm:p-8 shadow-2xl " novalidate>
+  <div class="h-1.5 rounded-full bg-line overflow-hidden" aria-hidden="true"><div data-bar class="h-full bg-brand transition-all duration-500" style="width:0"></div></div>
+  <p data-steplabel class="mt-3 text-xs font-semibold text-ink/60" aria-live="polite">Step 1 of 3</p>
+  <div class="mt-5"><div class="step"><h3 class="font-display text-2xl font-bold uppercase leading-tight">What's going on?</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">issue</legend><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="issue" value="Active leak" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Active leak</span></label><label class="chip cursor-pointer"><input type="radio" name="issue" value="Storm or hail damage" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Storm or hail damage</span></label><label class="chip cursor-pointer"><input type="radio" name="issue" value="Missing shingles" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Missing shingles</span></label><label class="chip cursor-pointer"><input type="radio" name="issue" value="Roof is getting old" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Roof is getting old</span></label><label class="chip cursor-pointer"><input type="radio" name="issue" value="Buying or selling" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Buying or selling</span></label><label class="chip cursor-pointer"><input type="radio" name="issue" value="Gutters" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Gutters</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-2xl font-bold uppercase leading-tight">About your home</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><label class="block text-sm font-semibold">Roof age <span class="text-red-600" aria-hidden="true">*</span><select name="age" required class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"><option value="">Choose...</option><option>Under 10 years</option><option>10 to 20 years</option><option>Over 20 years</option><option>Not sure</option></select></label><fieldset class="block"><legend class="sr-only">Stories</legend><p class="text-sm font-semibold">Stories <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="stories" value="1 story" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">1 story</span></label><label class="chip cursor-pointer"><input type="radio" name="stories" value="2 stories" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">2 stories</span></label><label class="chip cursor-pointer"><input type="radio" name="stories" value="3 stories" class="sr-only" required><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">3 stories</span></label></div></fieldset><fieldset class="block"><legend class="sr-only">Insurance claim?</legend><p class="text-sm font-semibold">Insurance claim?</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="claim" value="Yes" class="sr-only"><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Yes</span></label><label class="chip cursor-pointer"><input type="radio" name="claim" value="No" class="sr-only"><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">No</span></label><label class="chip cursor-pointer"><input type="radio" name="claim" value="Not sure" class="sr-only"><span class="inline-block rounded-md border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Not sure</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-2xl font-bold uppercase leading-tight">Your details</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Mobile number <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Property address <span class="text-red-600" aria-hidden="true">*</span><input name="address" type="text" required autocomplete="street-address" class="mt-1.5 w-full rounded-lg border border-line bg-white px-3 py-3 font-normal text-ink"></label><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted by phone, text or email about this request.</label></div></div></div>
+  <p data-err hidden class="mt-4 text-sm font-semibold text-red-600" role="alert">Please complete this step to continue.</p>
+  <div data-done hidden tabindex="-1" data-msg="Thanks, {name}! We'll call today to book your free inspection. You'll get photos of every issue within 24 hours of the visit." class="text-center py-8">
+    <div class="mx-auto w-14 h-14 rounded-full bg-brand text-white grid place-items-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3 class="font-display text-2xl font-bold uppercase leading-tight mt-5">Inspection requested</h3><p data-done-msg class="mt-2 text-ink/70 max-w-md mx-auto"></p>
+    <p class="mt-4 text-xs text-ink/50">Demo: on a live site this request goes straight to your phone and inbox.</p>
+  </div>
+  <div data-nav class="mt-8 flex items-center justify-between gap-3">
+    <button type="button" data-back class="invisible rounded-md px-5 py-3 text-sm font-semibold hover:bg-brand-50 transition">&larr; Back</button>
+    <button type="button" data-next class="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:brightness-110 text-white font-bold px-6 py-3.5 transition">Continue</button>
+    <button type="submit" data-submit hidden class="inline-flex items-center justify-center gap-2 rounded-md bg-accent hover:brightness-110 text-white font-bold px-6 py-3.5 transition">Book free inspection</button>
+  </div>
+</form></div></div>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">Contact</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Visit our showroom</h2><address class="not-italic mt-6 text-ink/80">1400 Commerce Drive<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">See shingle colors and metal panels in person, or ask for samples at home.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday &ndash; Friday</th><td class="py-2.5 text-right">7:30 am &ndash; 5:30 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">9:00 am &ndash; 1:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Closed</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Emergency tarping</th><td class="py-2.5 text-right">24/7</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="tel:+15555550160" class="inline-flex items-center justify-center gap-2 rounded-md bg-night hover:bg-night-700 text-white font-bold px-6 py-3.5 transition">Call (555) 555-0160</a><a href="#inspect" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-ink font-bold px-6 py-3 transition hover:bg-ink hover:text-white">Free inspection</a></div></div><div class="reveal rounded-xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1787094497609-5efe6029b950?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Shingle &amp; metal samples in the showroom</p><a href="https://maps.google.com/?q=1400+Commerce+Drive+Brookside,+PA+00000" class="rounded-md bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-paper py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-accent-600 font-semibold uppercase tracking-[.2em] text-xs">FAQ</p><h2 class="font-display text-4xl sm:text-5xl font-bold uppercase leading-[1.02] mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Will my insurance pay for a new roof?<span class="faq-icon text-2xl text-accent-600 transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">If the damage comes from a covered event like hail or wind, often yes. We document everything and meet your adjuster so nothing is missed.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How long does a replacement take?<span class="faq-icon text-2xl text-accent-600 transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Most homes are done in one day, two for larger or more complex roofs. We tarp and clean up every evening.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you install over the old shingles?<span class="faq-icon text-2xl text-accent-600 transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">No. We always tear off down to the deck so we can replace any rotten wood and give you a full warranty.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you offer financing?<span class="faq-icon text-2xl text-accent-600 transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes, from 0% APR for 12 months or low monthly payments up to 15 years, subject to approval.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">What does the warranty cover?<span class="faq-icon text-2xl text-accent-600 transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Our workmanship for 25 years, plus the manufacturer's material warranty. Both transfer if you sell the house.</p></details></div>
+  </div>
+</section>
+</main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Roofing</p><p class="mt-2">1400 Commerce Drive<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550160" class="hover:text-white">(555) 555-0160</a><br><a href="#inspect" class="hover:text-white">Free inspection</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Roofing (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550160" class="flex-1 text-center rounded-md border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#inspect" class="flex-[2] text-center rounded-md bg-accent text-white font-bold py-3 text-sm">Free inspection</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+
+(function () {
+  const f = $('#estimator'); if (!f) return;
+  const size = $('#e-size');
+  const rate = { 1: [4.6, 6.2], 2: [6.2, 8.1], 3: [10.5, 14.5] };
+  function calc() {
+    const st = Number(f.querySelector('[name=stories]:checked').value);
+    const pitch = Number(f.querySelector('[name=pitch]:checked').value);
+    const mat = f.querySelector('[name=mat]:checked').value;
+    const area = Math.round(Number(size.value) / st * pitch * 1.1 / 10) * 10;
+    const lo = Math.round(area * rate[mat][0] / 100) * 100, hi = Math.round(area * rate[mat][1] / 100) * 100;
+    const r = 0.0799 / 12, n = 120, mid = (lo + hi) / 2;
+    $('#e-size-out').textContent = Number(size.value).toLocaleString('en-US') + ' sq ft';
+    $('#e-area').textContent = area.toLocaleString('en-US');
+    $('#e-low').textContent = money(lo); $('#e-high').textContent = money(hi);
+    $('#e-month').textContent = money(mid * r / (1 - Math.pow(1 + r, -n)));
+  }
+  f.addEventListener('input', calc); f.addEventListener('change', calc); calc();
+})();
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>

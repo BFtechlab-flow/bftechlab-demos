@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Law Group | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a personal injury law firm: free case review form, practice areas, sample results, attorney profiles. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Law Group | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a personal injury law firm: free case review form, practice areas, sample results, attorney profiles. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#13233d", "50": "#f1f4f8", "100": "#e3e8f0", "700": "#0b1729"}, "accent": {"DEFAULT": "#c6a15b", "600": "#ab8641"}, "night": {"DEFAULT": "#0e1828", "800": "#152238", "700": "#1e2f4a"}, "ink": "#121a26", "paper": "#f7f5f0", "line": "#e3ddd0"}, "fontFamily": {"display": ["\"Playfair Display\"", "Georgia", "serif"], "sans": ["Inter", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#13233d;--brand-ink:#ffffff;--accent:#c6a15b;--paper:#f7f5f0;--ink:#121a26; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-accent text-night font-medium text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Law Group is a fictional law firm and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-night text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Law Group home">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-accent text-night font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl leading-none">BF <span class="text-accent">Law Group</span><span class="block font-sans text-[10px] font-semibold tracking-[.2em] uppercase text-accent mt-1">Personal injury attorneys</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#practice" class="hover:opacity-70 transition">Practice areas</a><a href="#results" class="hover:opacity-70 transition">Results</a><a href="#attorneys" class="hover:opacity-70 transition">Attorneys</a><a href="#faq" class="hover:opacity-70 transition">FAQ</a><a href="#visit" class="hover:opacity-70 transition">Contact</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550180" class="hidden xl:inline text-sm font-semibold text-accent">(555) 555-0180</a>
+      <a href="#review" class="rounded-full bg-accent hover:brightness-105 text-night text-sm font-semibold px-5 py-2.5 transition whitespace-nowrap">Free case review</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative bg-night text-white overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?auto=format&fit=crop&w=2000&q=75" alt="" class="absolute inset-0 w-full h-full object-cover object-center opacity-50" fetchpriority="high">
+  <div class="absolute inset-0 bg-gradient-to-r from-night via-night/80 to-night/25" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night/60 to-transparent" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 md:pt-24 md:pb-28 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7">
+      <p class="hero-in text-sm font-semibold text-accent uppercase tracking-wider">Personal injury &middot; Serving Brookside since 1996</p>
+      <h1 class="hero-in font-display font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl mt-4">Hurt in an accident? <em class="text-accent">You pay nothing unless we win.</em></h1>
+      <p class="hero-in mt-6 text-lg text-white/80 max-w-xl">A free, confidential case review with an attorney, not a call center. We deal with the insurance companies so you can focus on getting better.</p>
+      <div class="hero-in mt-8 flex flex-wrap gap-3"><a href="#review" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent hover:brightness-110 text-night font-bold px-6 py-3.5 transition">Get a free case review</a><a href="tel:+15555550180" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 hover:border-white text-white font-semibold px-6 py-3 transition"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call 24/7</a></div>
+      <ul class="hero-in mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80"><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>No upfront costs</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Hospital &amp; home visits</li><li class="flex items-center gap-2"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Se habla espa&ntilde;ol</li></ul>
+    </div>
+    <div class="hero-in lg:col-span-5"><form id="quickcase" data-demo class="grid sm:grid-cols-2 gap-4 bg-paper text-ink rounded-2xl p-6 shadow-2xl" novalidate><p class="sm:col-span-2 font-display text-2xl">Free case review</p><p class="sm:col-span-2 -mt-2 text-sm text-ink/60">Talk to an attorney today. 100% confidential.</p><label class="sm:col-span-2 block text-sm font-semibold">What happened? <span class="text-red-600" aria-hidden="true">*</span><select name="case" required class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"><option value="">Choose...</option><option>Car accident</option><option>Truck accident</option><option>Motorcycle accident</option><option>Slip and fall</option><option>Work injury</option><option>Other injury</option></select></label><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Phone <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><p data-err hidden class="sm:col-span-2 text-sm font-semibold text-red-600" role="alert">Please fill in the required fields.</p><div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-3"><button class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Get my free review</button><p class="text-xs opacity-60">No fee unless we win</p></div><p data-ok data-msg="Thank you, {name}. An attorney will call you within the hour about your {case} case." hidden tabindex="-1" class="sm:col-span-2 rounded-2xl bg-brand-50 text-ink border border-brand/20 font-semibold p-4"></p></form></div>
+  </div>
+</section>
+<section class="bg-night text-white border-white/10 border-y"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8"><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">$85M+</p><p class="mt-1 text-sm text-white/60">Recovered for clients (sample)</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">2,400+</p><p class="mt-1 text-sm text-white/60">Cases handled</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">$0</p><p class="mt-1 text-sm text-white/60">Fees unless we win</p></div><div class="reveal"><p class="font-display text-3xl sm:text-4xl font-bold">24/7</p><p class="mt-1 text-sm text-white/60">Free consultations</p></div></div></section>
+<section id="practice" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Practice areas</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">If you were hurt, we can help</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">01</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Car accidents</h3><p class="mt-2 text-sm text-ink/70">Rear-end, intersection and hit-and-run crashes, including claims against your own insurer.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">02</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Truck accidents</h3><p class="mt-2 text-sm text-ink/70">Commercial trucking cases with multiple insurers, driver logs and company records.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">03</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Motorcycle accidents</h3><p class="mt-2 text-sm text-ink/70">Riders face bias from insurers. We fight for the full value of your claim.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">04</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Slip &amp; fall</h3><p class="mt-2 text-sm text-ink/70">Injuries in stores, parking lots and rental properties caused by unsafe conditions.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">05</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Workplace injuries</h3><p class="mt-2 text-sm text-ink/70">Workers' compensation plus third-party claims when someone else is responsible.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a><a href="#review" class="reveal group block rounded-2xl border border-line bg-white p-7 hover:border-accent hover:shadow-xl transition"><p class="font-display text-3xl text-accent">06</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Wrongful death</h3><p class="mt-2 text-sm text-ink/70">Compassionate help for families who lost a loved one through someone's negligence.</p><p class="mt-5 text-sm font-semibold text-brand group-hover:text-accent-600">Free case review &rarr;</p></a></div>
+  </div>
+</section>
+<section id="results" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Recent results</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Real recoveries for real families</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"><div class="reveal rounded-2xl bg-night-800 border border-white/10 p-7"><p class="font-display text-5xl text-accent">$2.1M</p><p class="mt-3 font-semibold text-white">Truck accident</p><p class="mt-1 text-sm text-white/65">Spinal injury after a delivery truck ran a red light.</p></div><div class="reveal rounded-2xl bg-night-800 border border-white/10 p-7"><p class="font-display text-5xl text-accent">$1.3M</p><p class="mt-3 font-semibold text-white">Workplace fall</p><p class="mt-1 text-sm text-white/65">Scaffold collapse at a construction site.</p></div><div class="reveal rounded-2xl bg-night-800 border border-white/10 p-7"><p class="font-display text-5xl text-accent">$850K</p><p class="mt-3 font-semibold text-white">Car accident</p><p class="mt-1 text-sm text-white/65">Broken hip in an intersection crash, insurer first offered $40K.</p></div><div class="reveal rounded-2xl bg-night-800 border border-white/10 p-7"><p class="font-display text-5xl text-accent">$475K</p><p class="mt-3 font-semibold text-white">Slip &amp; fall</p><p class="mt-1 text-sm text-white/65">Unmarked wet floor at a grocery store.</p></div></div><p class="mt-6 text-sm text-white/50">Sample results for this demo. Prior results do not guarantee a similar outcome.</p>
+  </div>
+</section>
+<section id="why" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative lg:order-2"><img src="https://images.unsplash.com/photo-1698047682091-782b1e5c6536?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-center rounded-3xl shadow-xl"></div><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Why BF Law Group</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">You'll always talk to your attorney</h2><p class="mt-4 text-ink/70">Big advertising firms pass you to a case manager. Here, the attorney who takes your case returns your calls, answers your questions and stands next to you in court.</p><p class="mt-4 text-ink/70">We advance every cost of your case, from medical records to expert witnesses. If we don't win, you don't owe us anything.</p><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Direct cell number for your attorney</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>We come to you: hospital, home or video call</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Spanish-speaking staff</span></li></ul></div></div>
+  </div>
+</section>
+<section id="attorneys" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Our attorneys</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Three trial lawyers. One focus: injured people.</h2></div><div class="mt-12 grid md:grid-cols-3 gap-8"><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=640&q=75" alt="Robert Hale" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Robert Hale</h3><p class="text-sm font-semibold text-brand mt-1">Founding partner</p><p class="text-sm text-ink/70 mt-3">30 years of trial experience and more than 200 jury verdicts. Former insurance defense lawyer who switched sides.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=640&q=75" alt="Claire Donovan" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Claire Donovan</h3><p class="text-sm font-semibold text-brand mt-1">Partner</p><p class="text-sm text-ink/70 mt-3">Handles truck and workplace cases. Known for preparing every case as if it is going to trial.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1718209881007-c0ecdfc00f9d?auto=format&fit=crop&w=640&q=75" alt="Marcus Reed" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Marcus Reed</h3><p class="text-sm font-semibold text-brand mt-1">Associate attorney</p><p class="text-sm text-ink/70 mt-3">Car, motorcycle and slip-and-fall cases. Grew up in Brookside and speaks Spanish.</p></article></div>
+  </div>
+</section>
+<section id="how" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">How it works</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">What happens after you call</h2></div><div class="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-5"><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">01</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Free review</h3><p class="text-sm text-ink/70 mt-2">Tell us what happened. We'll tell you honestly if you have a case.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">02</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Investigation</h3><p class="text-sm text-ink/70 mt-2">We gather police reports, photos, witnesses and medical records.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">03</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Treatment &amp; negotiation</h3><p class="text-sm text-ink/70 mt-2">You focus on recovery while we deal with the insurers.</p></div><div class="reveal rounded-2xl border bg-white border-line p-6"><p class="font-display text-4xl text-brand font-bold">04</p><h3 class="font-display text-xl font-semibold leading-snug mt-3">Settlement or trial</h3><p class="text-sm text-ink/70 mt-2">Most cases settle. If they won't pay what's fair, we go to court.</p></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Client reviews</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">What our clients say</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Mr. Hale called me back himself the same evening. Two years later he got us more than five times the first offer."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"They visited me in the hospital and handled everything with the insurance. I never felt alone."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Clear, honest and patient. They explained every step in Spanish to my parents."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample client · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-ink/55">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="review" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Free case review</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Find out what your case is worth</h2><p class="mt-4 text-lg text-white/70">Three short questions. An attorney reviews every request personally and calls you back, usually within the hour.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>100% free and confidential</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>No fee unless we win your case</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Available 24/7, including weekends</span></li></ul><p class="mt-8 text-white/70">Rather talk now? <a href="tel:+15555550180" class="font-semibold text-accent">(555) 555-0180</a></p></div><div class="reveal lg:col-span-3"><form id="case-form" data-steps class="rounded-2xl bg-white text-ink p-6 sm:p-8 shadow-2xl " novalidate>
+  <div class="h-1.5 rounded-full bg-line overflow-hidden" aria-hidden="true"><div data-bar class="h-full bg-brand transition-all duration-500" style="width:0"></div></div>
+  <p data-steplabel class="mt-3 text-xs font-semibold text-ink/60" aria-live="polite">Step 1 of 3</p>
+  <div class="mt-5"><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">What happened?</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">case</legend><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="case" value="Car accident" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Car accident</span></label><label class="chip cursor-pointer"><input type="radio" name="case" value="Truck accident" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Truck accident</span></label><label class="chip cursor-pointer"><input type="radio" name="case" value="Motorcycle" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Motorcycle</span></label><label class="chip cursor-pointer"><input type="radio" name="case" value="Slip &amp; fall" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Slip &amp; fall</span></label><label class="chip cursor-pointer"><input type="radio" name="case" value="Work injury" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Work injury</span></label><label class="chip cursor-pointer"><input type="radio" name="case" value="Other" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Other</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">A few details</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">When did it happen?</legend><p class="text-sm font-semibold">When did it happen? <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="when" value="Within 30 days" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Within 30 days</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="1 to 6 months ago" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">1 to 6 months ago</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="6 to 12 months ago" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">6 to 12 months ago</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="Over a year ago" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Over a year ago</span></label></div></fieldset><fieldset class="block"><legend class="sr-only">Did you see a doctor?</legend><p class="text-sm font-semibold">Did you see a doctor? <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="doctor" value="Yes" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Yes</span></label><label class="chip cursor-pointer"><input type="radio" name="doctor" value="No" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">No</span></label><label class="chip cursor-pointer"><input type="radio" name="doctor" value="Not yet" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Not yet</span></label></div></fieldset><fieldset class="block"><legend class="sr-only">Were you at fault?</legend><p class="text-sm font-semibold">Were you at fault?</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="fault" value="No" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">No</span></label><label class="chip cursor-pointer"><input type="radio" name="fault" value="Partly" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Partly</span></label><label class="chip cursor-pointer"><input type="radio" name="fault" value="Not sure" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Not sure</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">How can we reach you?</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Phone <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="sm:col-span-2 block text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="sm:col-span-2 block text-sm font-semibold">Briefly, what happened? (optional)<textarea name="story" rows="3" placeholder="" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></textarea></label><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted about my case. Submitting this form does not create an attorney-client relationship.</label></div></div></div>
+  <p data-err hidden class="mt-4 text-sm font-semibold text-red-600" role="alert">Please complete this step to continue.</p>
+  <div data-done hidden tabindex="-1" data-msg="Thank you, {name}. An attorney will call you within one hour during business hours. Everything you shared stays confidential." class="text-center py-8">
+    <div class="mx-auto w-14 h-14 rounded-full bg-brand text-white grid place-items-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3 class="font-display text-xl font-semibold leading-snug mt-5">We received your request</h3><p data-done-msg class="mt-2 text-ink/70 max-w-md mx-auto"></p>
+    <p class="mt-4 text-xs text-ink/50">Demo: on a live site this request goes straight to your phone and inbox.</p>
+  </div>
+  <div data-nav class="mt-8 flex items-center justify-between gap-3">
+    <button type="button" data-back class="invisible rounded-full px-5 py-3 text-sm font-semibold hover:bg-brand-50 transition">&larr; Back</button>
+    <button type="button" data-next class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Continue</button>
+    <button type="submit" data-submit hidden class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Request free review</button>
+  </div>
+</form></div></div>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Contact</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Meet us downtown</h2><address class="not-italic mt-6 text-ink/80">500 Court Street, Suite 300<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">Free parking in the building garage. Can't come in? We'll come to you.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday &ndash; Friday</th><td class="py-2.5 text-right">8:30 am &ndash; 6:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">By appointment</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Phone consultations</th><td class="py-2.5 text-right">24/7</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="tel:+15555550180" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Call (555) 555-0180</a><a href="#review" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Free case review</a></div></div><div class="reveal rounded-3xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Home, hospital &amp; video consultations</p><a href="https://maps.google.com/?q=500+Court+Street,+Suite+300+Brookside,+PA+00000" class="rounded-full bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">FAQ</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How much does a lawyer cost?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Nothing upfront. We work on a contingency fee: we're paid a percentage of what we recover, and only if we win.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Should I talk to the other driver's insurance company?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">It's best to talk to a lawyer first. Adjusters are trained to minimize your claim, and what you say can be used against you.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How long will my case take?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Many cases settle in 6 to 18 months. Cases that go to trial can take longer. We'll give you an honest timeline.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">What is my case worth?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">It depends on your injuries, medical bills, lost wages and how the accident happened. A free review gives you a realistic range.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Is there a deadline to file?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes. Most states give you about two years from the date of the injury, sometimes less. Don't wait to get advice.</p></details></div>
+  </div>
+</section>
+</main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Law Group</p><p class="mt-2">500 Court Street, Suite 300<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550180" class="hover:text-white">(555) 555-0180</a><br><a href="#review" class="hover:text-white">Free case review</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  <p class="max-w-6xl mx-auto px-4 sm:px-6 pb-6 text-xs text-white/45">Attorney advertising. This website is a demo and does not provide legal advice. Prior results do not guarantee a similar outcome.</p>
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Law Group (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550180" class="flex-1 text-center rounded-full border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#review" class="flex-[2] text-center rounded-full bg-accent text-night font-bold py-3 text-sm">Free case review</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>

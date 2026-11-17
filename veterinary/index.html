@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Animal Hospital | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a veterinary clinic: appointment requests by pet and reason, services, team, new client offer. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Animal Hospital | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a veterinary clinic: appointment requests by pet and reason, services, team, new client offer. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1700665537650-1bf37979aae0?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#0f766e", "50": "#ebf8f6", "100": "#d3f0ec", "700": "#0b5f58"}, "accent": {"DEFAULT": "#f59e0b", "600": "#d98706"}, "night": {"DEFAULT": "#0f2e2b", "800": "#143b37", "700": "#1b4b46"}, "ink": "#0f2e2b", "paper": "#f5faf9", "line": "#d5e9e5"}, "fontFamily": {"display": ["Fredoka", "system-ui", "sans-serif"], "sans": ["\"Nunito Sans\"", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#0f766e;--brand-ink:#ffffff;--accent:#f59e0b;--paper:#f5faf9;--ink:#0f2e2b; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-night text-white/90 text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Animal Hospital is a fictional veterinary clinic and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line text-ink">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Animal Hospital home">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-white font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl leading-none">BF <span class="text-brand">Animal Hospital</span><span class="block font-sans text-[10px] font-semibold tracking-[.2em] uppercase text-ink/50 mt-1">Dogs &middot; Cats &middot; Small pets</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#services" class="hover:opacity-70 transition">Services</a><a href="#offer" class="hover:opacity-70 transition">New clients</a><a href="#team" class="hover:opacity-70 transition">Our team</a><a href="#book" class="hover:opacity-70 transition">Appointments</a><a href="#visit" class="hover:opacity-70 transition">Visit</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550110" class="hidden xl:inline text-sm font-semibold text-brand">(555) 555-0110</a>
+      <a href="#book" class="rounded-full bg-brand hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 transition whitespace-nowrap">Book a visit</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 dots opacity-60" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-24 md:pt-20 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="hero-in inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1.5"><span class="w-2 h-2 rounded-full bg-brand"></span> Accepting new patients &middot; same-day sick visits</p>
+      <h1 class="hero-in font-display font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl mt-5">Kind, unhurried care for the pets <span class="text-brand">you love.</span></h1>
+      <p class="hero-in mt-5 text-lg text-ink/75 max-w-lg">Wellness exams, vaccines, dental care and surgery under one roof, with vets who explain everything and never rush you.</p>
+      <div class="hero-in mt-8 flex flex-wrap gap-3"><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Request an appointment</a><a href="tel:+15555550110" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Call (555) 555-0110</a></div>
+      <dl class="hero-in mt-10 grid grid-cols-3 gap-4 max-w-md"><div><dt class="text-xs text-ink/60">Caring since</dt><dd class="font-display text-2xl mt-0.5">2002</dd></div><div><dt class="text-xs text-ink/60">Google rating</dt><dd class="font-display text-2xl mt-0.5">4.9&#9733;</dd></div><div><dt class="text-xs text-ink/60">Sick visits</dt><dd class="font-display text-2xl mt-0.5">Same day</dd></div></dl>
+    </div>
+    <div class="hero-in relative">
+      <div class="absolute -top-6 -right-6 w-44 h-44 rounded-full bg-accent/30 blur-2xl" aria-hidden="true"></div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1700665537650-1bf37979aae0?auto=format&fit=crop&w=1100&q=75&h=1300" alt="" fetchpriority="high" class="w-full aspect-[4/5] sm:aspect-square object-cover object-[70%_center] rounded-[2rem] shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&w=500&q=75&h=500" alt="" class="hidden sm:block absolute -top-5 -right-5 w-36 h-36 object-cover object-center rounded-full border-[6px] border-paper shadow-xl">
+        <div class="absolute left-4 right-4 -bottom-6 flex items-start gap-3 bg-paper text-ink rounded-2xl p-4 shadow-xl">
+          <span class="mt-0.5 inline-flex w-9 h-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></span>
+          <div><p class="font-semibold text-sm">Next openings: today 4:30 pm &amp; tomorrow morning</p><p class="text-xs text-ink/60 mt-0.5">Request online any time. We confirm by phone or text within the hour.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="services" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Services</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Everything your pet needs, from first shots to golden years</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1654895716780-b4664497420d?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Wellness exams</h3><p class="mt-2 text-sm text-ink/70">Nose-to-tail checkups with time for your questions, and a written plan you can take home.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1630438994394-3deff7a591bf?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Vaccines &amp; prevention</h3><p class="mt-2 text-sm text-ink/70">Core vaccines, flea, tick and heartworm prevention tailored to your pet's lifestyle.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1654895574745-82ef6b5970c4?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Dental care</h3><p class="mt-2 text-sm text-ink/70">Cleanings under safe anesthesia, digital dental X-rays and gentle extractions.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Surgery</h3><p class="mt-2 text-sm text-ink/70">Spays, neuters and soft-tissue surgery with advanced monitoring and pain control.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Cat-friendly visits</h3><p class="mt-2 text-sm text-ink/70">A separate cat waiting area, quiet exam room and gentle, low-stress handling.</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[16/10] overflow-hidden"><img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-semibold leading-snug">Senior pet care</h3><p class="mt-2 text-sm text-ink/70">Bloodwork, arthritis management and comfort care to keep older pets happy longer.</p></div></article></div>
+  </div>
+</section>
+<section id="offer" class="bg-brand text-white"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-14 grid md:grid-cols-3 gap-8 items-center"><div class="reveal md:col-span-2"><p class="text-sm font-semibold uppercase tracking-wider text-accent">New clients</p><h2 class="font-display text-3xl sm:text-4xl font-semibold mt-2">First exam $45 <span class="text-white/60 text-2xl line-through ml-2">$75</span></h2><p class="mt-3 text-white/80 max-w-xl">Includes a full physical exam, weight check and a personalized vaccine and prevention plan. Bring your records, or we'll request them for you.</p></div><div class="reveal md:text-right"><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent hover:brightness-110 text-night font-bold px-6 py-3.5 transition">Claim this offer</a></div></div></section>
+<section id="team" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Our team</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Vets who remember your pet's name</h2></div><div class="mt-12 grid md:grid-cols-3 gap-8"><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=640&q=75" alt="Dr. Hannah Cole, DVM" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Dr. Hannah Cole, DVM</h3><p class="text-sm font-semibold text-brand mt-1">Medical director</p><p class="text-sm text-ink/70 mt-3">Twenty years in small-animal medicine. Shares her office with a three-legged cat named Biscuit.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=640&q=75" alt="Dr. Ravi Patel, DVM" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Dr. Ravi Patel, DVM</h3><p class="text-sm font-semibold text-brand mt-1">Surgery &amp; dentistry</p><p class="text-sm text-ink/70 mt-3">Performs most of our surgeries and dental procedures. Patient with nervous dogs and their owners.</p></article><article class="reveal"><div class="aspect-[4/5] overflow-hidden rounded-3xl bg-line"><img src="https://images.unsplash.com/photo-1770134223774-13b735e29201?auto=format&fit=crop&w=640&q=75" alt="Megan Shaw, LVT" loading="lazy" class="w-full h-full object-cover object-top"></div><h3 class="font-display text-xl font-semibold leading-snug mt-5">Megan Shaw, LVT</h3><p class="text-sm font-semibold text-brand mt-1">Lead veterinary technician</p><p class="text-sm text-ink/70 mt-3">Runs our dental suite and new-puppy classes. Ask her anything about house training.</p></article></div>
+  </div>
+</section>
+<section id="book" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Appointments</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Book a visit for your pet</h2><p class="mt-4 text-lg text-white/70">Tell us a little about your pet and when works. Sick pets are always seen the same day.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Same-day appointments for sick pets</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Separate cat and dog waiting areas</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Reminders by text before every visit</span></li></ul><div class="mt-8 rounded-2xl border border-white/15 p-5"><p class="font-semibold text-accent">Emergency after hours?</p><p class="mt-1 text-sm text-white/75">Call the 24/7 Valley Emergency Pet Center at <a href="tel:+15555550199" class="underline">(555) 555-0199</a>. We receive their report the next morning.</p></div></div><div class="reveal lg:col-span-3"><form id="appt-form" data-steps class="rounded-2xl bg-white text-ink p-6 sm:p-8 shadow-2xl " novalidate>
+  <div class="h-1.5 rounded-full bg-line overflow-hidden" aria-hidden="true"><div data-bar class="h-full bg-brand transition-all duration-500" style="width:0"></div></div>
+  <p data-steplabel class="mt-3 text-xs font-semibold text-ink/60" aria-live="polite">Step 1 of 3</p>
+  <div class="mt-5"><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">About your pet</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">Species</legend><p class="text-sm font-semibold">Species <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="species" value="Dog" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Dog</span></label><label class="chip cursor-pointer"><input type="radio" name="species" value="Cat" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Cat</span></label><label class="chip cursor-pointer"><input type="radio" name="species" value="Rabbit" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Rabbit</span></label><label class="chip cursor-pointer"><input type="radio" name="species" value="Other" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Other</span></label></div></fieldset><label class="block text-sm font-semibold">Pet's name <span class="text-red-600" aria-hidden="true">*</span><input name="petname" type="text" required class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Age <span class="text-red-600" aria-hidden="true">*</span><select name="age" required class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"><option value="">Choose...</option><option>Under 1 year</option><option>1 to 7 years</option><option>8 years or older</option></select></label></div></div><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">Reason &amp; timing</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><fieldset class="sm:col-span-2 block"><legend class="sr-only">Reason for the visit</legend><p class="text-sm font-semibold">Reason for the visit <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="reason" value="Wellness exam" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Wellness exam</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Vaccines" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Vaccines</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Sick or injured" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Sick or injured</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Dental" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Dental</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Surgery consult" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Surgery consult</span></label><label class="chip cursor-pointer"><input type="radio" name="reason" value="Other" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Other</span></label></div></fieldset><fieldset class="sm:col-span-2 block"><legend class="sr-only">Preferred day</legend><p class="text-sm font-semibold">Preferred day <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="when" value="Today" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Today</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="Tomorrow" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Tomorrow</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="This week" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">This week</span></label><label class="chip cursor-pointer"><input type="radio" name="when" value="Next week" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Next week</span></label></div></fieldset><fieldset class="sm:col-span-2 block"><legend class="sr-only">Preferred time</legend><p class="text-sm font-semibold">Preferred time</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="slot" value="Morning" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Morning</span></label><label class="chip cursor-pointer"><input type="radio" name="slot" value="Afternoon" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Afternoon</span></label><label class="chip cursor-pointer"><input type="radio" name="slot" value="Evening" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Evening</span></label></div></fieldset></div></div><div class="step"><h3 class="font-display text-xl font-semibold leading-snug">Your details</h3><div class="mt-5 grid sm:grid-cols-2 gap-5"><label class="block text-sm font-semibold">Your name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Mobile number <span class="text-red-600" aria-hidden="true">*</span><input name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Email<input name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><fieldset class="block"><legend class="sr-only">New client?</legend><p class="text-sm font-semibold">New client?</p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="newclient" value="Yes" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Yes</span></label><label class="chip cursor-pointer"><input type="radio" name="newclient" value="No" class="sr-only"><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">No</span></label></div></fieldset><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted by phone, text or email about this request.</label></div></div></div>
+  <p data-err hidden class="mt-4 text-sm font-semibold text-red-600" role="alert">Please complete this step to continue.</p>
+  <div data-done hidden tabindex="-1" data-msg="Thanks, {name}! We'll call or text within the hour to confirm {petname}'s visit ({reason})." class="text-center py-8">
+    <div class="mx-auto w-14 h-14 rounded-full bg-brand text-white grid place-items-center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h3 class="font-display text-xl font-semibold leading-snug mt-5">Request received</h3><p data-done-msg class="mt-2 text-ink/70 max-w-md mx-auto"></p>
+    <p class="mt-4 text-xs text-ink/50">Demo: on a live site this request goes straight to your phone and inbox.</p>
+  </div>
+  <div data-nav class="mt-8 flex items-center justify-between gap-3">
+    <button type="button" data-back class="invisible rounded-full px-5 py-3 text-sm font-semibold hover:bg-brand-50 transition">&larr; Back</button>
+    <button type="button" data-next class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Continue</button>
+    <button type="submit" data-submit hidden class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Request appointment</button>
+  </div>
+</form></div></div>
+  </div>
+</section>
+<section id="why" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative lg:order-2"><img src="https://images.unsplash.com/photo-1700665537604-412e89a285c3?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-center rounded-3xl shadow-xl"></div><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Why families choose us</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Unhurried visits, clear prices</h2><p class="mt-4 text-ink/70">Every appointment is at least 30 minutes, so there's time to examine your pet properly and answer your questions.</p><p class="mt-4 text-ink/70">Before any treatment you get a written estimate. No surprises at the front desk.</p><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Low-stress handling and treats for every patient</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Digital X-rays and in-house lab results in minutes</span></li><li class="flex gap-3"><span class="text-brand"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Payment plans and most pet insurance accepted</span></li></ul></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Reviews</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">From pet parents</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Dr. Cole sat on the floor with our anxious rescue for ten minutes before even starting the exam. We're clients for life."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample pet parent · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"Our cat hates the vet, but the quiet cat room made a huge difference. In and out in 30 minutes."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample pet parent · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"They saw our puppy the same day she swallowed a sock and called every hour to update us."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample pet parent · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-ink/55">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Visit</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Easy to find on Meadow Lane</h2><address class="not-italic mt-6 text-ink/80">260 Meadow Lane<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">Free parking right outside, with a fenced grass area for dogs.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday &ndash; Friday</th><td class="py-2.5 text-right">7:30 am &ndash; 7:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">8:00 am &ndash; 2:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Closed</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Book a visit</a><a href="tel:+15555550110" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Call (555) 555-0110</a></div></div><div class="reveal rounded-3xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Separate cat &amp; dog waiting areas</p><a href="https://maps.google.com/?q=260+Meadow+Lane+Brookside,+PA+00000" class="rounded-full bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">FAQ</p><h2 class="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold leading-tight mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you see rabbits and other small pets?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes. We see dogs, cats, rabbits, guinea pigs and ferrets. For birds and reptiles we'll refer you to a specialist.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do you offer payment plans?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes, for bills over $300, and we accept most pet insurance plans. Ask us to submit the claim for you.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Can I stay with my pet during the exam?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Of course, for exams and vaccines. For surgery and dental procedures we'll update you by text.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How do I get my pet's records?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Ask at the front desk or reply to any reminder text and we'll email them the same day.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">What should I bring to the first visit?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Previous records if you have them, a list of food and medications, and your pet on a leash or in a carrier.</p></details></div>
+  </div>
+</section>
+</main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Animal Hospital</p><p class="mt-2">260 Meadow Lane<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550110" class="hover:text-white">(555) 555-0110</a><br><a href="#book" class="hover:text-white">Book a visit</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Animal Hospital (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550110" class="flex-1 text-center rounded-full border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#book" class="flex-[2] text-center rounded-full bg-accent text-night font-bold py-3 text-sm">Book a visit</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BF Realty | Demo by BF Tech Lab</title>
+<meta name="description" content="Demo website for a local real estate agency: searchable listings with filters and detail views, home valuation requests, neighborhood guides. Built by BF Tech Lab.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="BF Realty | Demo by BF Tech Lab">
+<meta property="og:description" content="Demo website for a local real estate agency: searchable listings with filters and detail views, home valuation requests, neighborhood guides. Built by BF Tech Lab.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=1200&q=75&h=630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {"theme": {"extend": {"colors": {"brand": {"DEFAULT": "#2a2724", "50": "#f6f3ee", "100": "#ece7df", "700": "#151311"}, "accent": {"DEFAULT": "#b8925a", "600": "#9c7843"}, "night": {"DEFAULT": "#1b1a19", "800": "#252321", "700": "#33302d"}, "ink": "#1b1a19", "paper": "#faf8f5", "line": "#e8e1d6"}, "fontFamily": {"display": ["Marcellus", "Georgia", "serif"], "sans": ["Jost", "system-ui", "sans-serif"]}}}};</script>
+<style>
+  :root { --brand:#2a2724;--brand-ink:#ffffff;--accent:#b8925a;--paper:#faf8f5;--ink:#1b1a19; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); }
+  [hidden] { display: none !important; }
+  a[href^="tel:"] { white-space: nowrap; }
+  .js .reveal { opacity: 0; transform: translateY(22px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .reveal { opacity: 1 !important; transform: none !important; } }
+  dialog::backdrop { background: rgba(10,10,10,.62); }
+  dialog { max-height: calc(100dvh - 2rem); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  input[type=range] { accent-color: var(--brand); }
+  .chip input:checked + span { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .step { display: none; } .step.active { display: block; }
+  .tabbtn[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+  .dots { background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px); background-size: 14px 14px; }
+  
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="bg-night text-white/90 text-center text-xs sm:text-sm px-4 py-2">Demo website by <strong>BF Tech Lab</strong> &mdash; BF Realty is a fictional real estate agency and the photos are stock images.</div>
+<header id="top" class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line text-ink">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="BF Realty home">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-white font-display text-lg font-bold tracking-tight" aria-hidden="true">BF</span>
+      <span class="font-display text-xl leading-none">BF <span class="text-brand">Realty</span><span class="block font-sans text-[10px] font-semibold tracking-[.2em] uppercase text-ink/50 mt-1">Homes in Brookside &amp; the valley</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold whitespace-nowrap" aria-label="Main"><a href="#listings" class="hover:opacity-70 transition">Listings</a><a href="#value" class="hover:opacity-70 transition">Sell</a><a href="#areas" class="hover:opacity-70 transition">Neighborhoods</a><a href="#about" class="hover:opacity-70 transition">About</a><a href="#visit" class="hover:opacity-70 transition">Contact</a></nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="tel:+15555550190" class="hidden xl:inline text-sm font-semibold text-brand">(555) 555-0190</a>
+      <a href="#value" class="rounded-full bg-brand hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 transition whitespace-nowrap">Home value</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="relative bg-night text-white overflow-hidden"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=2000&q=75" alt="" class="absolute inset-0 w-full h-full object-cover opacity-75" fetchpriority="high"><div class="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-night/10" aria-hidden="true"></div><div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-16 md:pt-44 md:pb-24"><p class="hero-in text-sm font-semibold text-accent uppercase tracking-wider">BF Realty &middot; Brookside &amp; the valley</p><h1 class="hero-in font-display font-normal leading-[1.05] text-5xl sm:text-6xl lg:text-7xl mt-4 max-w-3xl">Find the home that fits the life you want.</h1><p class="hero-in mt-5 text-lg text-white/85 max-w-xl">Local agents, honest advice and homes you won't see everywhere else. Search below, or ask what your home is worth.</p><form id="hsearch" class="hero-in mt-10 bg-white text-ink rounded-2xl p-2 grid sm:grid-cols-[1fr_1fr_1fr_auto] gap-2 max-w-3xl shadow-2xl" role="search"><select name="area" class="rounded-xl bg-brand-50 px-3 py-3 font-medium"><option value="">Any area</option><option>Brookside</option><option>Oak Ridge</option><option>Cedar Falls</option><option>Riverton</option><option>Fairview</option><option>Hillcrest</option></select><select name="type" class="rounded-xl bg-brand-50 px-3 py-3 font-medium"><option value="">Any type</option><option>House</option><option>Townhome</option></select><select name="max" class="rounded-xl bg-brand-50 px-3 py-3 font-medium"><option value="">Any price</option><option value="400000">Up to $400k</option><option value="600000">Up to $600k</option><option value="800000">Up to $800k</option><option value="1000000">Up to $1M</option></select><button class="rounded-xl bg-accent text-night font-semibold px-6 py-3">Search</button></form></div></section>
+<section id="listings" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="flex flex-wrap items-end justify-between gap-4"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Featured listings</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Homes for sale now</h2></div><p class="text-sm text-ink/60"><span id="l-count" class="font-semibold text-ink">0</span> homes match</p></div><div class="reveal mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 bg-white rounded-2xl border border-line p-3" role="group" aria-label="Filter listings"><label class="text-xs font-semibold text-ink/60">Area<select id="f-area" class="mt-1 w-full rounded-xl bg-brand-50 px-3 py-2.5 text-sm font-medium text-ink"><option value="">All areas</option><option>Brookside</option><option>Oak Ridge</option><option>Cedar Falls</option><option>Riverton</option><option>Fairview</option><option>Hillcrest</option></select></label><label class="text-xs font-semibold text-ink/60">Bedrooms<select id="f-beds" class="mt-1 w-full rounded-xl bg-brand-50 px-3 py-2.5 text-sm font-medium text-ink"><option value="0">Any</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select></label><label class="text-xs font-semibold text-ink/60">Max price<select id="f-max" class="mt-1 w-full rounded-xl bg-brand-50 px-3 py-2.5 text-sm font-medium text-ink"><option value="">Any</option><option value="400000">$400k</option><option value="600000">$600k</option><option value="800000">$800k</option><option value="1000000">$1M</option></select></label><label class="text-xs font-semibold text-ink/60">Sort<select id="f-sort" class="mt-1 w-full rounded-xl bg-brand-50 px-3 py-2.5 text-sm font-medium text-ink"><option value="new">Newest</option><option value="price-asc">Price, low to high</option><option value="price-desc">Price, high to low</option><option value="size">Largest</option></select></label></div><div id="l-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite"></div><div id="l-empty" hidden class="mt-10 text-center rounded-2xl border-2 border-dashed border-line p-10"><p class="font-display text-2xl">No homes match those filters yet</p><p class="mt-2 text-ink/60">Tell us what you're looking for and we'll send new listings first.</p><a href="#visit" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition mt-6">Contact an agent</a></div>
+  </div>
+</section>
+<section id="value" class="bg-night text-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start"><div class="lg:col-span-2"><div class="reveal max-w-2xl"><p class="text-sm font-semibold text-accent uppercase tracking-wider">Selling?</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">What is your home worth?</h2><p class="mt-4 text-lg text-white/70">Get a free, personal valuation from a local agent, based on recent sales on your street, not an online guess.</p></div><ul class="mt-6 space-y-3"><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Report within 24 hours, no obligation</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Recent sales and active competition nearby</span></li><li class="flex gap-3"><span class="text-accent"><svg class="mt-0.5 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span>Tips to raise your price before listing</span></li></ul></div><div class="reveal lg:col-span-3"><form id="value-form" data-demo class="grid sm:grid-cols-2 gap-4 rounded-3xl bg-white text-ink p-6 sm:p-8 shadow-2xl" novalidate><label class="sm:col-span-2 block text-sm font-semibold">Property address <span class="text-red-600" aria-hidden="true">*</span><input name="address" type="text" required autocomplete="street-address" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Bedrooms <span class="text-red-600" aria-hidden="true">*</span><select name="beds" required class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"><option value="">Choose...</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label><label class="block text-sm font-semibold">Condition <span class="text-red-600" aria-hidden="true">*</span><select name="condition" required class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"><option value="">Choose...</option><option>Move-in ready</option><option>Needs some updates</option><option>Needs major work</option></select></label><fieldset class="sm:col-span-2 block"><legend class="sr-only">When are you thinking of selling?</legend><p class="text-sm font-semibold">When are you thinking of selling? <span class="text-red-600" aria-hidden="true">*</span></p><div class="mt-2 flex flex-wrap gap-2"><label class="chip cursor-pointer"><input type="radio" name="timeline" value="0&ndash;3 months" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">0&ndash;3 months</span></label><label class="chip cursor-pointer"><input type="radio" name="timeline" value="3&ndash;6 months" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">3&ndash;6 months</span></label><label class="chip cursor-pointer"><input type="radio" name="timeline" value="6+ months" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">6+ months</span></label><label class="chip cursor-pointer"><input type="radio" name="timeline" value="Just curious" class="sr-only" required><span class="inline-block rounded-full border border-line bg-white text-ink px-4 py-2 text-sm font-medium transition hover:border-brand">Just curious</span></label></div></fieldset><label class="block text-sm font-semibold">Name <span class="text-red-600" aria-hidden="true">*</span><input name="name" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="block text-sm font-semibold">Email <span class="text-red-600" aria-hidden="true">*</span><input name="email" type="email" required autocomplete="email" class="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-ink"></label><label class="sm:col-span-2 flex items-start gap-3 text-sm"><input name="consent" type="checkbox" required class="mt-1 w-4 h-4 shrink-0" style="accent-color:var(--brand)"> I agree to be contacted by phone, text or email about this request.</label><p data-err hidden class="sm:col-span-2 text-sm font-semibold text-red-600" role="alert">Please fill in the required fields.</p><div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-3"><button class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Get my home value</button><p class="text-xs opacity-60">Demo: on a live site this request goes straight to your phone and inbox.</p></div><p data-ok data-msg="Thanks, {name}! Your free home value report for {address} will be in your inbox within 24 hours." hidden tabindex="-1" class="sm:col-span-2 rounded-2xl bg-brand-50 text-ink border border-brand/20 font-semibold p-4"></p></form></div></div>
+  </div>
+</section>
+<section id="areas" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Neighborhoods</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Where Brookside lives</h2></div><div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1761839259488-2bdeeae794f5?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-normal leading-snug">Downtown Brookside</h3><p class="mt-2 text-sm text-ink/70">Walkable streets, cafes and the Friday farmers market.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Median price $465k</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1770638048811-e175eded18fe?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-normal leading-snug">Oak Ridge</h3><p class="mt-2 text-sm text-ink/70">Quiet cul-de-sacs, top-rated schools and big backyards.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Median price $720k</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-normal leading-snug">Riverton</h3><p class="mt-2 text-sm text-ink/70">Riverfront trail, newer homes and easy highway access.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Median price $640k</p></div></article><article class="reveal group overflow-hidden rounded-2xl border bg-white border-line hover:shadow-xl transition flex flex-col"><div class="aspect-[4/5] overflow-hidden"><img src="https://images.unsplash.com/photo-1627927518258-b67557570840?auto=format&fit=crop&w=760&q=75" alt="" loading="lazy" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"></div><div class="p-6 flex-1 flex flex-col"><h3 class="font-display text-xl font-normal leading-snug">Historic district</h3><p class="mt-2 text-sm text-ink/70">Victorian homes with porches, on gas-lit streets.</p><p class="mt-auto pt-4 text-sm font-semibold text-brand">Median price $555k</p></div></article></div>
+  </div>
+</section>
+<section id="about" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><div class="reveal relative"><img src="https://images.unsplash.com/photo-1585240975858-7264fd020798?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" class="w-full aspect-[4/5] object-cover object-top rounded-3xl shadow-xl"></div><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Your agent</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Jessica Moreno, broker &amp; owner</h2><p class="mt-4 text-ink/70">Jessica has helped more than 340 families buy and sell in the valley since 2010. She grew up in Riverton and still coaches Little League there.</p><p class="mt-4 text-ink/70">Her team prices homes with real data, markets them with professional photos and video, and answers the phone on weekends.</p><dl class="mt-8 grid grid-cols-3 gap-4 max-w-md"><div><dt class="text-xs text-ink/60">Homes sold</dt><dd class="font-display text-3xl">340+</dd></div><div><dt class="text-xs text-ink/60">Avg. days on market</dt><dd class="font-display text-3xl">18</dd></div><div><dt class="text-xs text-ink/60">Of asking price</dt><dd class="font-display text-3xl">101%</dd></div></dl><p class="mt-3 text-xs text-ink/50">Sample figures for this demo.</p></div></div>
+  </div>
+</section>
+<section id="reviews" class="bg-white py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Client stories</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Buyers and sellers</h2></div><div class="mt-10 grid md:grid-cols-3 gap-5"><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"We sold in five days for more than asking, and Jessica found our next house before it hit the market."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample seller · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"First-time buyers with a hundred questions. She answered every single one, even on Sundays."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample buyer · Sample review</figcaption></figure><figure class="reveal rounded-2xl bg-white shadow-sm border border-line p-6"><p class="text-[#f5a524] tracking-wider" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="mt-3 text-ink/80">"The photos and video of our home were stunning. Twelve showings the first weekend."</blockquote><figcaption class="mt-4 text-xs text-ink/55">Sample seller · Sample review</figcaption></figure></div><p class="mt-6 text-sm text-ink/55">Sample reviews for this demo. On your site, your real Google reviews appear here.</p>
+  </div>
+</section>
+<section id="visit" class="bg-paper py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<div class="grid md:grid-cols-2 gap-10 lg:gap-14"><div class="reveal"><p class="text-sm font-semibold text-brand uppercase tracking-wider">Contact</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Stop by the office</h2><address class="not-italic mt-6 text-ink/80">10 Market Square<br>Brookside, PA 00000</address><p class="mt-2 text-sm text-ink/60">On the square, across from the bank. Parking in the rear lot.</p><table class="mt-6 w-full max-w-sm text-sm"><caption class="sr-only">Opening hours</caption><tbody class="divide-y divide-line"><tr><th scope="row" class="py-2.5 text-left font-semibold">Monday &ndash; Friday</th><td class="py-2.5 text-right">9:00 am &ndash; 6:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Saturday</th><td class="py-2.5 text-right">10:00 am &ndash; 4:00 pm</td></tr><tr><th scope="row" class="py-2.5 text-left font-semibold">Sunday</th><td class="py-2.5 text-right">Open houses &amp; by appointment</td></tr></tbody></table><div class="mt-8 flex flex-wrap gap-3"><a href="tel:+15555550190" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Call (555) 555-0190</a><a href="#listings" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Browse homes</a></div></div><div class="reveal rounded-3xl overflow-hidden bg-line min-h-[340px] relative"><img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?auto=format&fit=crop&w=1100&q=75" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" aria-hidden="true"></div><div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 text-white"><p class="font-display text-xl leading-tight max-w-xs">Agents available 7 days a week</p><a href="https://maps.google.com/?q=10+Market+Square+Brookside,+PA+00000" class="rounded-full bg-white text-ink px-4 py-2 text-sm font-semibold shadow">Get directions</a></div></div></div>
+  </div>
+</section>
+<section id="faq" class="bg-white py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+<div class="reveal max-w-2xl"><p class="text-sm font-semibold text-brand uppercase tracking-wider">FAQ</p><h2 class="font-display text-4xl sm:text-5xl font-normal leading-[1.08] mt-2">Questions we hear every day</h2></div><div class="mt-10 divide-y divide-line border-y border-line"><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Do I need to be pre-approved before touring homes?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">It's not required, but it helps you move fast when the right home appears. We can connect you with local lenders.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How do you decide the listing price?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">We study recent sales, active competition and your home's condition, then walk you through the numbers before you decide.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">Can you help me buy and sell at the same time?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Yes. We plan the timing so you're not stuck with two mortgages or nowhere to live.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">How long does it take to sell?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">Well-priced homes in our area sell in about three weeks on average, depending on the season and price range.</p></details><details class="reveal py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">What does it cost to work with you as a buyer?<span class="faq-icon text-2xl text-brand transition-transform" aria-hidden="true">+</span></summary><p class="mt-3 text-ink/70">We explain all fees upfront in a written buyer agreement before you tour, so there are no surprises.</p></details></div>
+  </div>
+</section>
+<dialog id="home-dialog" class="w-[calc(100%-2rem)] max-w-4xl rounded-3xl p-0 bg-white text-ink" aria-labelledby="h-title"><div class="relative"><button type="button" data-close class="absolute right-3 top-3 z-10 w-10 h-10 rounded-full bg-white/90 text-xl font-bold" aria-label="Close">&times;</button><div class="grid grid-cols-3 gap-1"><img id="h-img" alt="" class="col-span-2 w-full h-64 sm:h-80 object-cover"><img id="h-img2" alt="" class="w-full h-64 sm:h-80 object-cover"></div><div class="p-6 sm:p-8"><div class="flex flex-wrap items-start justify-between gap-4"><div><p id="h-status" class="text-xs font-semibold uppercase tracking-wider text-accent-600"></p><h3 id="h-title" class="font-display text-3xl mt-1"></h3><p id="h-area" class="text-ink/60"></p></div><p id="h-price" class="font-display text-4xl"></p></div><dl id="h-specs" class="mt-6 grid grid-cols-3 gap-3 text-sm"></dl><p id="h-desc" class="mt-6 text-ink/75"></p><div class="mt-7 grid sm:grid-cols-3 gap-3"><a id="h-sms" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition">Schedule a tour</a><a href="tel:+15555550190" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Call the agent</a><a href="#value" data-close class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 hover:border-brand font-semibold px-6 py-3 transition">Sell my home first</a></div><p id="h-pay" class="mt-4 text-xs text-ink/50"></p></div></div></dialog></main>
+<footer class="bg-night text-white/70">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8 text-sm">
+    <div><p class="font-display text-2xl text-white">BF Realty</p><p class="mt-2">10 Market Square<br>Brookside, PA 00000</p></div>
+    <div><p class="font-semibold text-white">Contact</p><p class="mt-2"><a href="tel:+15555550190" class="hover:text-white">(555) 555-0190</a><br><a href="#value" class="hover:text-white">Home value</a></p></div>
+    <div><p class="font-semibold text-white">About this demo</p><p class="mt-2">Designed and built by BF Tech Lab, websites and automations for small businesses. The business, people, prices and reviews are fictional.</p></div>
+  </div>
+  
+  <p class="text-center text-xs text-white/40 pb-24 md:pb-8">&copy; <span data-year>2026</span> BF Realty (demo) &middot; Stock photos from Unsplash</p>
+</footer>
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-night/95 backdrop-blur p-3 flex gap-2"><a href="tel:+15555550190" class="flex-1 text-center rounded-full border border-white/25 text-white font-bold py-3 text-sm">Call</a><a href="#listings" class="flex-[2] text-center rounded-full bg-accent text-night font-bold py-3 text-sm">Search homes</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = new Date().getFullYear());
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '$' + Math.round(Number(n) || 0).toLocaleString('en-US');
+
+/* dialogs */
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]');
+  if (o) { const d = document.getElementById(o.dataset.open); if (d && d.showModal) d.showModal(); }
+  const c = e.target.closest('[data-close]');
+  if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+});
+$$('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* tabs */
+$$('[data-tabs]').forEach(box => {
+  const btns = $$('[data-tab]', box);
+  const show = k => {
+    btns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === k)));
+    $$('[data-panel]', box).forEach(p => p.hidden = p.dataset.panel !== k);
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+  if (btns[0]) show(btns[0].dataset.tab);
+});
+
+/* min date = today */
+$$('input[type=date]').forEach(i => { const d = new Date(); i.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); });
+
+/* validation */
+function validScope(scope) {
+  let ok = true; const seen = new Set();
+  $$('input,select,textarea', scope).forEach(el => {
+    if (!el.required || el.closest('[hidden]')) return;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) return; seen.add(el.name);
+      if (!scope.querySelector(`input[name="${el.name}"]:checked`)) ok = false;
+    } else if (el.type === 'checkbox') { if (!el.checked) ok = false; }
+    else if (!String(el.value).trim()) ok = false;
+    else if (el.type === 'tel' && el.value.replace(/\D/g, '').length < 10) ok = false;
+    else if (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value)) ok = false;
+  });
+  return ok;
+}
+function fillMsg(f, tpl) {
+  return tpl.replace(/\{(\w+)\}/g, (m, k) => {
+    const el = f.elements.namedItem(k); let v = el ? (el.value || '') : '';
+    if (el && el.length !== undefined && !el.value && el[0] && el[0].type === 'checkbox') v = [...el].filter(x => x.checked).map(x => x.value).join(', ');
+    v = String(v).trim();
+    if (k === 'name') v = v.split(' ')[0];
+    return v || (k === 'name' ? 'there' : '—');
+  });
+}
+$$('form[data-demo]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('[data-err]', f), ok = $('[data-ok]', f), good = validScope(f);
+  if (err) err.hidden = good;
+  if (!good) return;
+  ok.textContent = fillMsg(f, ok.dataset.msg); ok.hidden = false; ok.focus();
+  f.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=date]),textarea').forEach(i => i.value = '');
+}));
+$$('form[data-steps]').forEach(f => {
+  const steps = $$('.step', f); let i = 0;
+  const bar = $('[data-bar]', f), lab = $('[data-steplabel]', f), back = $('[data-back]', f),
+        next = $('[data-next]', f), sub = $('[data-submit]', f), err = $('[data-err]', f);
+  function show(n) {
+    i = n; steps.forEach((s, k) => s.classList.toggle('active', k === i));
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    lab.textContent = `Step ${i + 1} of ${steps.length}`;
+    back.classList.toggle('invisible', i === 0);
+    next.hidden = i === steps.length - 1; sub.hidden = i !== steps.length - 1; err.hidden = true;
+  }
+  next.addEventListener('click', () => { if (!validScope(steps[i])) { err.hidden = false; return; } show(i + 1); });
+  back.addEventListener('click', () => show(i - 1));
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validScope(steps[i])) { err.hidden = false; return; }
+    const done = $('[data-done]', f);
+    $('[data-done-msg]', done).textContent = fillMsg(f, done.dataset.msg);
+    steps.forEach(s => s.classList.remove('active'));
+    $('[data-nav]', f).hidden = true; err.hidden = true; bar.style.width = '100%'; lab.textContent = 'Request sent';
+    done.hidden = false; done.focus();
+  });
+  show(0);
+});
+
+const HOMES = [{"id": "l1", "img": "1531971589569-0d9370cbe1e5", "img2": "1564078516393-cf04bd966897", "price": 1249000, "addr": "18 Ridgeview Court", "area": "Oak Ridge", "type": "House", "beds": 4, "baths": 3.5, "sqft": 3850, "status": "New", "desc": "Modern home with walls of glass, a heated pool and an open kitchen made for entertaining. Three-car garage and smart-home lighting."}, {"id": "l2", "img": "1584738766473-61c083514bf4", "img2": "1763827513396-5917fc6c84f3", "price": 689000, "addr": "402 Maple Avenue", "area": "Brookside", "type": "House", "beds": 4, "baths": 3, "sqft": 2940, "status": "Open house Sat 1&ndash;3", "desc": "Classic farmhouse with a wraparound porch on a quiet, tree-lined street. Renovated kitchen, original wood floors, walk to downtown."}, {"id": "l3", "img": "1592595896616-c37162298647", "img2": "1773578978637-c9771e7a9913", "price": 529000, "addr": "77 Willow Bend", "area": "Cedar Falls", "type": "House", "beds": 3, "baths": 2, "sqft": 2150, "status": "For sale", "desc": "Single-level living with a bright great room, gas fireplace and a fenced backyard. New roof in 2023."}, {"id": "l4", "img": "1786051385612-5fac26efaf88", "img2": "1771372125074-5c7c4332095f", "price": 975000, "addr": "9 Lakeshore Drive", "area": "Riverton", "type": "House", "beds": 5, "baths": 4, "sqft": 4200, "status": "For sale", "desc": "Colonial with an in-ground pool, finished basement and a chef's kitchen. Five bedrooms, including a first-floor suite."}, {"id": "l5", "img": "1564013799919-ab600027ffc6", "img2": "1763827513396-5917fc6c84f3", "price": 845000, "addr": "1450 Harbor Lane", "area": "Riverton", "type": "House", "beds": 4, "baths": 3.5, "sqft": 3400, "status": "Price reduced", "desc": "Two-story home with balconies, a resort-style pool and a covered outdoor kitchen. Minutes from the riverfront trail."}, {"id": "l6", "img": "1625603736199-775425d2890a", "img2": "1773578978637-c9771e7a9913", "price": 459000, "addr": "25 Orchard Street", "area": "Brookside", "type": "House", "beds": 3, "baths": 2, "sqft": 1780, "status": "Pending", "desc": "Charming gambrel-roof home with a front porch, updated baths and a detached workshop."}, {"id": "l7", "img": "1771366260867-7e07094579d7", "img2": "1564078516393-cf04bd966897", "price": 612000, "addr": "6 Cypress Walk", "area": "Oak Ridge", "type": "Townhome", "beds": 3, "baths": 2.5, "sqft": 2050, "status": "New", "desc": "End-unit townhome with high ceilings, a private courtyard and an attached two-car garage. Low HOA fees."}, {"id": "l8", "img": "1605146769289-440113cc3d00", "img2": "1771372125074-5c7c4332095f", "price": 349000, "addr": "310 Elm Street", "area": "Fairview", "type": "House", "beds": 3, "baths": 2, "sqft": 1420, "status": "For sale", "desc": "Move-in ready starter home with an attached garage, new flooring and a level backyard."}, {"id": "l9", "img": "1536745511564-a5fa6e596e7b", "img2": "1763827513396-5917fc6c84f3", "price": 739000, "addr": "52 Summit Road", "area": "Hillcrest", "type": "House", "beds": 4, "baths": 3, "sqft": 3100, "status": "Sold", "desc": "Hillside home with a pool and stone patio surrounded by mature trees. Sold in 6 days, 4% over asking."}];
+
+const img = (id, w) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
+const fa = $('#f-area'), fb = $('#f-beds'), fm = $('#f-max'), fs = $('#f-sort'); let ftype = '';
+function list() {
+  let l = HOMES.filter(h => (!fa.value || h.area === fa.value) && h.beds >= Number(fb.value) && (!fm.value || h.price <= Number(fm.value)) && (!ftype || h.type === ftype));
+  const so = { 'price-asc': (a, b) => a.price - b.price, 'price-desc': (a, b) => b.price - a.price, size: (a, b) => b.sqft - a.sqft,
+               new: (a, b) => (a.status === 'Sold') - (b.status === 'Sold') || HOMES.indexOf(a) - HOMES.indexOf(b) };
+  return l.sort(so[fs.value] || so.new);
+}
+function render() {
+  const l = list();
+  $('#l-count').textContent = l.filter(h => h.status !== 'Sold').length;
+  $('#l-empty').hidden = l.length > 0;
+  $('#l-grid').innerHTML = l.map(h => `
+    <article class="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl transition flex flex-col ${h.status === 'Sold' ? 'opacity-80' : ''}">
+      <button type="button" data-home="${h.id}" class="relative block aspect-[4/3] overflow-hidden text-left" aria-label="See details for ${esc(h.addr)}">
+        <img src="${img(h.img, 800)}" alt="${esc(h.addr)}" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute top-3 left-3 rounded-full ${h.status === 'Sold' ? 'bg-night text-white' : h.status === 'Pending' ? 'bg-white text-ink' : 'bg-accent text-night'} text-xs font-semibold px-3 py-1">${h.status}</span>
+      </button>
+      <div class="p-5 flex-1 flex flex-col">
+        <p class="font-display text-2xl ${h.status === 'Sold' ? 'line-through text-ink/40' : ''}">${money(h.price)}</p>
+        <h3 class="mt-1 font-semibold">${esc(h.addr)}</h3><p class="text-sm text-ink/60">${esc(h.area)} &middot; ${h.type}</p>
+        <ul class="mt-4 flex gap-4 text-sm text-ink/80"><li><strong>${h.beds}</strong> bd</li><li><strong>${h.baths}</strong> ba</li><li><strong>${h.sqft.toLocaleString('en-US')}</strong> sq ft</li></ul>
+        <button type="button" data-home="${h.id}" class="mt-auto pt-5 text-left text-sm font-semibold text-accent-600 hover:underline">View details &rarr;</button>
+      </div>
+    </article>`).join('');
+}
+[fa, fb, fm, fs].forEach(el => el.addEventListener('input', render));
+$('#hsearch').addEventListener('submit', e => {
+  e.preventDefault(); const f = e.target;
+  const v = n => f.elements.namedItem(n).value;
+  fa.value = v('area'); fm.value = v('max'); ftype = v('type'); render();
+  $('#listings').scrollIntoView({ behavior: 'smooth' });
+});
+const dlg = $('#home-dialog');
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-home]'); if (!b) return;
+  const h = HOMES.find(x => x.id === b.dataset.home); if (!h) return;
+  $('#h-img').src = img(h.img, 1200); $('#h-img2').src = img(h.img2, 600);
+  $('#h-status').innerHTML = h.status; $('#h-title').textContent = h.addr; $('#h-area').textContent = `${h.area}, PA · ${h.type}`;
+  $('#h-price').textContent = h.status === 'Sold' ? 'Sold' : money(h.price);
+  $('#h-specs').innerHTML = [['Bedrooms', h.beds], ['Bathrooms', h.baths], ['Square feet', h.sqft.toLocaleString('en-US')]]
+    .map(([k, v]) => `<div class="rounded-xl bg-brand-50 p-3"><dt class="text-xs text-ink/60">${k}</dt><dd class="font-semibold text-lg">${v}</dd></div>`).join('');
+  $('#h-desc').textContent = h.desc;
+  const r = 0.0675 / 12, n = 360, P = h.price * 0.8;
+  $('#h-pay').textContent = h.status === 'Sold' ? '' : `Estimated mortgage about ${money(P * r / (1 - Math.pow(1 + r, -n)))}/month with 20% down at 6.75% for 30 years, before taxes and insurance. Example only.`;
+  $('#h-sms').href = `sms:+15555550190?body=${encodeURIComponent('Hi, I would like to tour ' + h.addr + ' (' + money(h.price) + ').')}`;
+  $('#h-sms').textContent = h.status === 'Sold' ? 'Find me one like it' : 'Schedule a tour';
+  dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
+});
+render();
+
+
+(function () {
+  const reveal = () => $$('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return reveal();
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-in', { y: 26, opacity: 0, duration: .75, ease: 'power3.out', stagger: .08 });
+    $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  } catch (e) { reveal(); }
+})();
+
+</script>
+</body>
+</html>
