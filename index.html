@@ -15,6 +15,8 @@
   .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
   a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; color:inherit; text-decoration:none; transition: border-color .2s, transform .2s; }
   a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .thumb { display:block; width:calc(100% + 48px); margin:-24px -24px 18px; max-width:none; aspect-ratio:16/10; object-fit:cover; border-radius:16px 16px 0 0; }
+  a.card { overflow:hidden; }
   .tag { display:inline-block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#a86400; }
   h2 { margin: 8px 0 6px; font-size: 22px; }
   .card p { margin:0; color:var(--muted); font-size:15px; line-height:1.5; }
@@ -28,13 +30,15 @@
   <p class="lead">Working examples of the websites we build for independent small businesses. The businesses shown are fictional.</p>
   <div class="grid">
     <a class="card" href="dental/">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=75" alt="" class="thumb">
       <span class="tag">Dental practice</span>
-      <h2>Brookside Family Dental</h2>
+      <h2>BF Dental</h2>
       <p>Online appointment requests in three steps, new patient info, insurance, team and hours.</p>
     </a>
     <a class="card" href="dealer/">
+      <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=800&q=75" alt="" class="thumb">
       <span class="tag">Used car dealer</span>
-      <h2>Ridgeline Auto Sales</h2>
+      <h2>BF Motors</h2>
       <p>Searchable inventory, one-tap text about any vehicle, payment estimator, and an admin to add and edit cars.</p>
     </a>
   </div>
