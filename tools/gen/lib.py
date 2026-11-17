@@ -161,7 +161,8 @@ def gallery(S, items):
         out.append(
             f'<figure class="reveal group relative overflow-hidden {T(S, "card")}{big}"><img src="{U(img, 900 if i == 0 else 600)}" alt="{cap}" loading="lazy" class="w-full h-full min-h-[180px] object-cover transition duration-700 group-hover:scale-105">'
             f'<figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent text-white text-sm font-semibold p-4 pt-10">{cap}</figcaption></figure>')
-    return f'<div class="mt-12 grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-3">{"".join(out)}</div>'
+    cols = "md:grid-cols-3" if len(items) % 3 == 0 else "md:grid-cols-4"
+    return f'<div class="mt-12 grid grid-cols-2 {cols} auto-rows-[180px] md:auto-rows-[230px] gap-3">{"".join(out)}</div>'
 
 
 def reviews(S, items, dark=False):
